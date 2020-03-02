@@ -3,7 +3,7 @@ module.exports = {
   mode: 'universal',
 
   server: {
-    host: '0.0.0.0',
+    host: '47.115.125.250',
     port: 5000, // default: 5000
   },
 
