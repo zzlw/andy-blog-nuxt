@@ -12,26 +12,26 @@ module.exports = {
   */
   head: {
     title: '夏季指南',
-    titleTemplate: '%s | shirmy',
+    titleTemplate: '%s | Andy',
     meta: [
       { charset: 'utf-8' },
       { 'http-equiv': 'cleartype', content: 'on' },
       { 'http-equiv': 'Cache-Control' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1, user-scalable=no' },
       { hid: 'keywords', name: 'keywords', content: '前端，JavaScript，博客，Node，Vue' },
-      { name: 'author', content: 'qiushiming1997@gmail.com' },
+      { name: 'author', content: 'zzlwte@gmail.com' },
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'dns-prefetch', href: '//resource.shirmy.me' },
-      { rel: 'dns-prefetch', href: '//api.shirmy.me' },
+      { rel: 'dns-prefetch', href: '//resource.fxq.design' },
+      { rel: 'dns-prefetch', href: '//api.fxq.design' },
     ],
     script: [
       {
         async: 'async',
         type: 'text/javascript',
-        src: 'https://resource.shirmy.me/intersection-polyfill.js'
+        src: 'https://resource.fxq.design/intersection-polyfill.js'
       },
       {
         async: 'async',

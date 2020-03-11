@@ -17,7 +17,7 @@ after_success:
 # notifications:
 #   email:
 #     recipients:
-#     - qiushiming1997@gmail.com
+#     - zzlwte@gmail.com
 #     on_success: always
 #     on_failure: always
 addons:

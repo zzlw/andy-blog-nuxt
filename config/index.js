@@ -1,5 +1,5 @@
 const Config = {
-  baseUrl: process.env.NODE_ENV === 'production' ? 'http://47.115.125.250:3000' : 'http://47.115.125.250:3000',
-  staticPath: 'http://47.115.125.250:3000'
+  baseUrl: process.env.NODE_ENV === 'production' ? 'https://api.fxq.design' : 'http://localhost:3000',
+  staticPath: 'https://resource.fxq.design'
 }
 export default Config
