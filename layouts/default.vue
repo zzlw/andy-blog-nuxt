@@ -1,17 +1,20 @@
 <template>
-  <div id="app" class="app-container">
-    <page-header :navList="navList"></page-header>
-    <main class="view">
-      <transition name="fade-transform"
-                  mode="out-in">
-        <nuxt />
+  <div>
+    <div id="app" class="app-container">
+      <page-header :navList="navList"></page-header>
+      <main class="view">
+        <transition name="fade-transform"
+                    mode="out-in">
+          <nuxt />
+        </transition>
+      </main>
+      <page-footer :navList="navList"></page-footer>
+      <transition name="search-slide">
+        <page-search v-if="isShowSearch"></page-search>
       </transition>
-    </main>
-    <page-footer :navList="navList"></page-footer>
-    <transition name="search-slide">
-      <page-search v-if="isShowSearch"></page-search>
-    </transition>
-    <scroll-top></scroll-top>
+      <scroll-top></scroll-top>
+    </div>
+    <div id="aplayer"></div>
   </div>
 </template>
 
@@ -78,6 +81,43 @@ export default {
   mounted() {
     const theme = window.localStorage.getItem('THEME')
     this.setTheme(theme || 'light')
+    const ap = new window.APlayer({
+      container: window.document.getElementById('aplayer'),
+      fixed: true,
+      theme: '#e9e9e9',
+      audio: [
+        {
+          name: 'Cheap Thrills',
+          artist: 'Sia + Sean Paul',
+          url: 'https://cdn.fxq.design/blog/Sia%20%2B%20Sean%20Paul-Cheap%20Thrills.mp3',
+          cover: 'https://cdn.fxq.design/blog/asdf-avatar.jpg'
+        },
+        {
+          name: 'Señorita',
+          artist: 'Shawn Mendes + Camila Cabello',
+          url: 'https://cdn.fxq.design/blog/Shawn%20Mendes%20%2B%20Camila%20Cabello-Sen%CC%83orita.mp3',
+          cover: 'https://cdn.fxq.design/blog/asdfaf.png'
+        },
+        {
+          name: 'We Don\'t Talk Anymore',
+          artist: 'Sam Tsui + Alex G-Don\'t Wanna Know',
+          url: 'https://cdn.fxq.design/blog/Sam%20Tsui%20%2B%20Alex%20G-Don%27t%20Wanna%20Know%20%2B%20We%20Don%27t%20Talk%20Anymore.m4a',
+          cover: 'https://cdn.fxq.design/blog/_MG_0847.JPG'
+        },
+        {
+          name: 'Happier',
+          artist: 'Marshmellow + Bastille',
+          url: 'https://cdn.fxq.design/blog/Marshmellow%20%2B%20Bastille-Happier.mp3',
+          cover: 'https://cdn.fxq.design/blog/asdf-avatar.jpg'
+        },
+        {
+          name: 'Bomba (Radio Edit) (Remix Klass)',
+          artist: 'Jessy Matador',
+          url: 'https://cdn.fxq.design/blog/Jessy%20Matador-Bomba%20%28Radio%20Edit%29%20%28Remix%20Klass%29.m4a',
+          cover: 'https://cdn.fxq.design/blog/asdf-avatar.jpg'
+        }
+      ]
+    })
   }
 }
 </script>

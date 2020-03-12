@@ -26,6 +26,7 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'dns-prefetch', href: '//resource.fxq.design' },
       { rel: 'dns-prefetch', href: '//api.fxq.design' },
+      { rel: 'stylesheet', href:   'https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css'}
     ],
     script: [
       {
@@ -48,6 +49,21 @@ module.exports = {
 
           gtag('config', 'UA-144196694-1');
         `
+      },
+      {
+        // async: 'async',
+        type: 'text/javascript',
+        src: 'https://cdn.bootcss.com/color-thief/2.3.0/color-thief.min.js'
+      },
+      {
+        // async: 'async',
+        type: 'text/javascript',
+        src: 'https://cdn.bootcss.com/hls.js/8.0.0-beta.3/hls.min.js'
+      },
+      {
+        // async: 'async',
+        type: 'text/javascript',
+        src: 'https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js'
       }
     ],
     noscript: [

@@ -35,7 +35,7 @@ const defaultStar = {
     }
   ],
   created_date: Date.now(),
-  cover: 'https://resource.shirmy.me/lighthouse.jpeg'
+  cover: 'https://cdn.fxq.design/blog/lighthouse.jpeg'
 }
 
 export default {
@@ -101,7 +101,7 @@ export default {
 
   mounted() {
     // console.log()
-  },
+  }
 }
 </script>
 
