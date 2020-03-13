@@ -32,7 +32,7 @@ module.exports = {
       {
         async: 'async',
         type: 'text/javascript',
-        src: 'https://resource.fxq.design/intersection-polyfill.js'
+        src: 'https://cdn.fxq.design/intersection-polyfill.js'
       },
       {
         async: 'async',

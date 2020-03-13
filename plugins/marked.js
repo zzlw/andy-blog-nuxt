@@ -49,7 +49,7 @@ const imageParse = (src, title, alt) => {
       <figure class="image-wrapper">
         <div class="progress-image">
           <img
-            src="${src}" title="${title || alt || 'shirmy'}" />
+            src="${src}" title="${title || alt || 'Andy'}" />
         </div>
         <div class="image-caption">
           <span>${title || alt || ''}</span>
@@ -60,11 +60,11 @@ const imageParse = (src, title, alt) => {
   return `
     <figure class="image-wrapper">
       <div class="progress-image">
-        <img src="${src}-thumbnail" title="${title || alt || 'shirmy'}"
+        <img src="${src}-thumbnail" title="${title || alt || 'Andy'}"
           class="thumbnail"/>
         <img
           data-origin="${src}"
-          data-src="${src}-progressive" title="${title || alt || 'shirmy'}"
+          data-src="${src}-progressive" title="${title || alt || 'Andy'}"
           class="image-popper real-image"/>
       </div>
       <div class="image-caption">

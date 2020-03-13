@@ -16,13 +16,13 @@
 
 ## screenshot
 
-![首页(黑夜主题)](https://resource.fxq.design/blog/screenshot/2019-07-20/andy-blog-nuxt-screenshot-01.png)
+![首页(黑夜主题)](https://cdn.fxq.design/blog/screenshot/2019-07-20/andy-blog-nuxt-screenshot-01.png)
 
-![归档(白昼主题)](https://resource.fxq.design/blog/screenshot/2019-07-20/andy-blog-nuxt-screenshot-02.png)
+![归档(白昼主题)](https://cdn.fxq.design/blog/screenshot/2019-07-20/andy-blog-nuxt-screenshot-02.png)
 
-![标签(白昼主题)](https://resource.fxq.design/blog/screenshot/2019-07-20/andy-blog-nuxt-screenshot-03.png)
+![标签(白昼主题)](https://cdn.fxq.design/blog/screenshot/2019-07-20/andy-blog-nuxt-screenshot-03.png)
 
-![文章详情(白昼主题)](https://resource.fxq.design/blog/screenshot/2019-07-20/andy-blog-nuxt-screenshot-04.png)
+![文章详情(白昼主题)](https://cdn.fxq.design/blog/screenshot/2019-07-20/andy-blog-nuxt-screenshot-04.png)
 
 ## Setup
 
