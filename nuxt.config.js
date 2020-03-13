@@ -24,7 +24,7 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'dns-prefetch', href: '//resource.fxq.design' },
+      { rel: 'dns-prefetch', href: '//cdn.fxq.design' },
       { rel: 'dns-prefetch', href: '//api.fxq.design' },
       { rel: 'stylesheet', href:   'https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css'}
     ],
