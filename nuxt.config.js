@@ -37,7 +37,7 @@ module.exports = {
       {
         async: 'async',
         type: 'text/javascript',
-        src: 'https://www.googletagmanager.com/gtag/js?id=UA-144196694-1'
+        src: 'https://www.googletagmanager.com/gtag/js?id=UA-160689475-1'
       },
       {
         // Global site tag (gtag.js) - Google Analytics
