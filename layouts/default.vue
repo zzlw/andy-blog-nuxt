@@ -87,6 +87,12 @@ export default {
       theme: '#e9e9e9',
       audio: [
         {
+          name: '喜欢你',
+          artist: 'G.E.M.邓紫棋',
+          url: 'https://cdn.fxq.design/blog/G.E.M.%E9%82%93%E7%B4%AB%E6%A3%8B-%E5%96%9C%E6%AC%A2%E4%BD%A0.mp3',
+          cover: 'https://cdn.fxq.design/blog/img/timg.jpeg'
+        },
+        {
           name: 'Cheap Thrills',
           artist: 'Sia + Sean Paul',
           url: 'https://cdn.fxq.design/blog/Sia%20%2B%20Sean%20Paul-Cheap%20Thrills.mp3',
