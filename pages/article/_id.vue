@@ -3,7 +3,7 @@
     <header class="article-header" :style="articleCover">
       <div class="header-wrapper">
         <div class="content">
-          <tag-list :tagList="article.tags"></tag-list>
+          <tag-list :tagList="article.tags" @selectTag="onSelectTag"></tag-list>
           <h1 class="title">{{article.title}}</h1>
           <div class="author-wrapper" v-show="article.created_date">
             by&nbsp;
@@ -25,7 +25,7 @@
           <div class="tags-wrapper">
             <i class="icon icon-tags-fill"></i>
             <ul class="tags">
-              <router-link tag="li" class="tag-item" v-for="tag in article.tags" :key="tag.id" :to="`/tags/${tag.id}/${tag.name}`">{{tag.name}}</router-link>
+              <router-link tag="li" class="tag-item" v-for="tag in article.tags" :key="tag.id" :to="{ path: `/tag/${tag.id}`, query: { name: tag.name } }">{{tag.name}}</router-link>
             </ul>
           </div>
           <div class="like-btn" @click="likeArticle">
@@ -196,6 +196,8 @@ export default {
         articleId: this.id
       })
     },
+
+    onSelectTag(tag) { this.$router.push({ path: `/tag/${tag.id}`, query: { name: tag.name } }) },
 
     initImg() {
       import('../../services/utils/lazy-img').then(res => {
