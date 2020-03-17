@@ -22,7 +22,7 @@
         </div>
       </li>
     </ul>
-    <!-- <div>
+    <div>
       <split-line
         :icon="'star-fill'"
         :desc="'友链 (在留言板申请“昵称+链接”)'"
@@ -32,7 +32,7 @@
           <a class="friend-item" :key="friend.id" :href="friend.link" target="_blank">{{friend.name}}</a>
         </template>
       </ul>
-    </div> -->
+    </div>
   </div>
 </template>
 
