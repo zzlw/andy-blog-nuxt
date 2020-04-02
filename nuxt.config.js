@@ -47,7 +47,7 @@ module.exports = {
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
 
-          gtag('config', 'UA-144196694-1');
+          gtag('config', 'UA-160689475-1');
         `
       },
       {
