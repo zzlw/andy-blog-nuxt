@@ -11,7 +11,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: '夏季指南啊1',
+    title: '夏季指南啊122',
     titleTemplate: '%s | Andy',
     meta: [
       { charset: 'utf-8' },
