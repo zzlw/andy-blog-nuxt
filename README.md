@@ -1,6 +1,5 @@
 ## smile-blog-nuxt (https://www.fxq.design)
-
-[![Build Status](https://www.travis-ci.org/smileAndy/andy-blog-nuxt.svg?branch=master)](https://www.travis-ci.org/smileAndy/andy-blog-nuxt)
+本项目采用 Jenkins 自动化部署
 
 - 适配多分辨率
 - 支持白昼黑夜主题切换
