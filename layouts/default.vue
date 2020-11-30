@@ -28,7 +28,7 @@ import ScrollTop from '@/components/layout/scroll-top/scroll-top'
 const navList = [
   {
     link: "/",
-    name: "首页1112223333"
+    name: "首页"
   },
   {
     link: "/archive",
