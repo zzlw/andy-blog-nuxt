@@ -35,7 +35,7 @@ const defaultStar = {
     }
   ],
   created_date: Date.now(),
-  cover: 'https://cdn.fxq.design/blog/lighthouse.jpeg'
+  cover: 'https://resource.jiawen.live/blog/lighthouse.jpeg'
 }
 
 export default {

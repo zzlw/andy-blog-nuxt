@@ -1,5 +1,4 @@
-## smile-blog-nuxt (https://www.fxq.design)
-本项目采用 Jenkins 自动化部署
+## andy-blog-nuxt (https://www.jiawen.live)
 
 - 适配多分辨率
 - 支持白昼黑夜主题切换
@@ -12,16 +11,6 @@
 - 展示前端 [andy-blog-nuxt](https://github.com/zzlw/andy-blog-nuxt)
 - 管理后台 [andy-blog-admin](https://github.com/zzlw/andy-blog-admin)
 - 服务端 [andy-blog-koa](https://github.com/zzlw/andy-blog-koa)
-
-## screenshot
-
-![首页(黑夜主题)](https://cdn.fxq.design/blog/screenshot/2019-07-20/andy-blog-nuxt-screenshot-01.png)
-
-![归档(白昼主题)](https://cdn.fxq.design/blog/screenshot/2019-07-20/andy-blog-nuxt-screenshot-02.png)
-
-![标签(白昼主题)](https://cdn.fxq.design/blog/screenshot/2019-07-20/andy-blog-nuxt-screenshot-03.png)
-
-![文章详情(白昼主题)](https://cdn.fxq.design/blog/screenshot/2019-07-20/andy-blog-nuxt-screenshot-04.png)
 
 ## Setup
 
@@ -41,4 +30,7 @@ npm start
 # use pm2
 npm run build
 pm2 start npm --name nuxt -- start
+
+# docker
+docker container run -d --name andy-blog-nuxt -p 80:5000 zzlwte/andy-blog-nuxt
 ```
