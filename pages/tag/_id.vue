@@ -34,7 +34,7 @@ export default {
   created() {
     // 标签
     this.name = this.$nuxt.$route.query.name
-    this.cover = 'https://resource.jiawen.live/blog/lighthouse.jpeg'
+    this.cover = 'https://resource.jiawen.online/blog/lighthouse.jpeg'
     this.id = parseInt(this.$nuxt.$route.params.id)
   }
 }

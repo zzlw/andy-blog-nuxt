@@ -4,7 +4,7 @@ module.exports = {
 
   server: {
     host: '0.0.0.0',
-    port: 5000, // default: 5000
+    port: 4000, // default: 5000
   },
 
   /*
@@ -24,15 +24,15 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'dns-prefetch', href: '//resource.jiawen.live' },
-      { rel: 'dns-prefetch', href: '//api.jiawen.live' },
+      { rel: 'dns-prefetch', href: '//resource.jiawen.online' },
+      { rel: 'dns-prefetch', href: '//api.jiawen.online' },
       { rel: 'stylesheet', href:   'https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css'}
     ],
     script: [
       {
         async: 'async',
         type: 'text/javascript',
-        src: 'https://resource.jiawen.live/intersection-polyfill.js'
+        src: 'https://resource.jiawen.online/intersection-polyfill.js'
       },
       {
         async: 'async',
@@ -46,7 +46,6 @@ module.exports = {
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-
           gtag('config', 'UA-160689475-1');
         `
       },

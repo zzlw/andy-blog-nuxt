@@ -1,4 +1,4 @@
-## andy-blog-nuxt (https://www.jiawen.live)
+## andy-blog-nuxt (https://www.jiawen.online)
 
 - 适配多分辨率
 - 支持白昼黑夜主题切换
@@ -32,5 +32,5 @@ npm run build
 pm2 start npm --name nuxt -- start
 
 # docker
-docker container run -d --name andy-blog-nuxt -p 80:5000 zzlwte/andy-blog-nuxt
+docker container run -d --name andy-blog-nuxt -p 80:4000 zzlwte/andy-blog-nuxt
 ```
