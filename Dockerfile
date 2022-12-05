@@ -1,5 +1,5 @@
 # 第一阶段（构建阶段）
-FROM node:12.6-alpine as builder
+FROM node:14-alpine as builder
 
 WORKDIR /app
 
