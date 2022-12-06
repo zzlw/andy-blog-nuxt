@@ -1,4 +1,4 @@
-## andy-blog-nuxt (https://www.jiawen.online)
+## andy-blog-nuxt (https://www.jiawen.live)
 
 - 适配多分辨率
 - 支持白昼黑夜主题切换
