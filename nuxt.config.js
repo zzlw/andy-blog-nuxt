@@ -32,7 +32,7 @@ module.exports = {
       {
         async: 'async',
         type: 'text/javascript',
-        src: 'https://resource.jiawen.live/intersection-polyfill.js'
+        src: 'https://resources.jiawen.live/intersection-polyfill.js'
       },
       {
         async: 'async',
