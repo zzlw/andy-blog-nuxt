@@ -3,7 +3,7 @@
     <div class="footer-wrapper">
       <a class="between">
         <switch-theme :size="'18px'"></switch-theme>
-        <span class="logo">Andy</span>
+        <span class="logo">Gavin</span>
       </a>
       <div class="menu-wrapper">
         <desktop-nav :navList="navList"></desktop-nav>
@@ -21,7 +21,7 @@
       </div>
     </div>
     <div class="footer-copyright">
-      <span class="copyright">© 2020 <span class="logo">Andy</span></span>. All Right Reserved.
+      <span class="copyright">© 2020 <span class="logo">Gavin</span></span>. All Right Reserved.
       <div class="record-number">豫ICP备20005670号-1</div>
     </div>
   </footer>

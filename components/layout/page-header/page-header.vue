@@ -2,7 +2,7 @@
   <header class="header-container" :class="homeMobileClass">
     <div class="header-logo">
       <switch-theme :size="'30px'"></switch-theme>
-      <i class="logo">Andy</i>
+      <i class="logo">Gavin</i>
     </div>
     <nav class="nav-wrapper">
       <desktop-nav class="desktop-nav" :navList="navList"></desktop-nav>

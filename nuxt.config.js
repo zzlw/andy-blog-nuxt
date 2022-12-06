@@ -12,7 +12,7 @@ module.exports = {
   */
   head: {
     title: '冬季指南',
-    titleTemplate: '%s | Andy',
+    titleTemplate: '%s | Gavin',
     meta: [
       { charset: 'utf-8' },
       { 'http-equiv': 'cleartype', content: 'on' },

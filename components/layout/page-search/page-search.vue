@@ -26,7 +26,7 @@
       </div>
       <footer class="footer">
         <switch-theme :size="'18px'"></switch-theme>
-        <span class="logo">Andy.</span>
+        <span class="logo">Gavin.</span>
         <span class="desc">#&nbsp;惟有文字&nbsp;长情陪伴&nbsp;#</span>
       </footer>
     </aside>
