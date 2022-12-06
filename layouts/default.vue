@@ -90,37 +90,37 @@ export default {
           name: '喜欢你',
           artist: 'G.E.M.邓紫棋',
           url: 'https://resources.jiawen.live/blog/G.E.M.%E9%82%93%E7%B4%AB%E6%A3%8B-%E5%96%9C%E6%AC%A2%E4%BD%A0.mp3',
-          cover: 'https://resource.jiawen.live/blog/img/timg.jpeg'
+          cover: 'https://resources.jiawen.live/blog/img/timg.jpeg'
         },
         {
           name: 'Cheap Thrills',
           artist: 'Sia + Sean Paul',
           url: 'https://resources.jiawen.live/blog/Sia%20%2B%20Sean%20Paul-Cheap%20Thrills.mp3',
-          cover: 'https://resource.jiawen.live/blog/asdf-avatar.jpg'
+          cover: 'https://resources.jiawen.live/blog/asdf-avatar.jpg'
         },
         {
           name: 'Señorita',
           artist: 'Shawn Mendes + Camila Cabello',
           url: 'https://resources.jiawen.live/blog/Shawn%20Mendes%20%2B%20Camila%20Cabello-Sen%CC%83orita.mp3',
-          cover: 'https://resource.jiawen.live/blog/asdfaf.png'
+          cover: 'https://resources.jiawen.live/blog/asdfaf.png'
         },
         {
           name: 'We Don\'t Talk Anymore',
           artist: 'Sam Tsui + Alex G-Don\'t Wanna Know',
           url: 'https://resources.jiawen.live/blog/Sam%20Tsui%20%2B%20Alex%20G-Don%27t%20Wanna%20Know%20%2B%20We%20Don%27t%20Talk%20Anymore.m4a',
-          cover: 'https://resource.jiawen.live/blog/_MG_0847.JPG'
+          cover: 'https://resources.jiawen.live/blog/_MG_0847.JPG'
         },
         {
           name: 'Happier',
           artist: 'Marshmellow + Bastille',
           url: 'https://resources.jiawen.live/blog/Marshmellow%20%2B%20Bastille-Happier.mp3',
-          cover: 'https://resource.jiawen.live/blog/asdf-avatar.jpg'
+          cover: 'https://resources.jiawen.live/blog/asdf-avatar.jpg'
         },
         {
           name: 'Bomba (Radio Edit) (Remix Klass)',
           artist: 'Jessy Matador',
           url: 'https://resources.jiawen.live/blog/Jessy%20Matador-Bomba%20%28Radio%20Edit%29%20%28Remix%20Klass%29.m4a',
-          cover: 'https://resource.jiawen.live/blog/asdf-avatar.jpg'
+          cover: 'https://resources.jiawen.live/blog/asdf-avatar.jpg'
         }
       ]
     })
