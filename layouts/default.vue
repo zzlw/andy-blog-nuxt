@@ -102,13 +102,13 @@ export default {
           name: 'Señorita',
           artist: 'Shawn Mendes + Camila Cabello',
           url: 'https://resources.jiawen.live/blog/Shawn%20Mendes%20%2B%20Camila%20Cabello-Sen%CC%83orita.mp3',
-          cover: 'https://resources.jiawen.live/blog/asdfaf.png'
+          cover: 'https://resources.jiawen.live/blog/asdf-avatar.jpg'
         },
         {
           name: 'We Don\'t Talk Anymore',
           artist: 'Sam Tsui + Alex G-Don\'t Wanna Know',
           url: 'https://resources.jiawen.live/blog/Sam%20Tsui%20%2B%20Alex%20G-Don%27t%20Wanna%20Know%20%2B%20We%20Don%27t%20Talk%20Anymore.m4a',
-          cover: 'https://resources.jiawen.live/blog/_MG_0847.JPG'
+          cover: 'https://resources.jiawen.live/blog/asdf-avatar.jpg'
         },
         {
           name: 'Happier',
