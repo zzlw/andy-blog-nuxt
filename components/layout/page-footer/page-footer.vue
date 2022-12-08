@@ -21,8 +21,8 @@
       </div>
     </div>
     <div class="footer-copyright">
-      <span class="copyright">© 2020 <span class="logo">Gavin</span></span>. All Right Reserved.
-      <div class="record-number">豫ICP备20005670号-1</div>
+      <span class="copyright">© 2022 <span class="logo">Gavin</span></span>. All Right Reserved.
+      <a class="record-number" href="https://beian.miit.gov.cn" target="_blank">豫ICP备20005670号-1</a>
     </div>
   </footer>
 </template>
@@ -156,5 +156,7 @@ export default {
 
 .record-number {
   margin-top: 10px;
+  display: block;
+  color: var(--font-color-light);
 };
 </style>
