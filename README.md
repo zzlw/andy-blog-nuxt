@@ -1,4 +1,4 @@
-## andy-blog-nuxt (https://www.jiawen.live)
+## andy-blog-nuxt (https://jiawen.live)
 
 ![GitHub action](https://github.com/zzlw/andy-blog-nuxt/workflows/docker%20image%20build%20and%20push/badge.svg)
 [![GitHub issues](http://img.shields.io/github/issues/zzlw/andy-blog-nuxt.svg)](http://github.com/zzlw/andy-blog-nuxt/issues)
