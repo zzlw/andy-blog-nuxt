@@ -4,7 +4,7 @@
 [![GitHub issues](http://img.shields.io/github/issues/zzlw/andy-blog-nuxt.svg)](http://github.com/zzlw/andy-blog-nuxt/issues)
 [![GitHub forks](http://img.shields.io/github/forks/zzlw/andy-blog-nuxt.svg)](http://github.com/zzlw/andy-blog-nuxt/network)
 [![GitHub stars](http://img.shields.io/github/stars/zzlw/andy-blog-nuxt.svg)](http://github.com/zzlw/andy-blog-nuxt/stargazers)
-[![GitHub license](http://img.shields.io/github/license/zzlw/andy-blog-nuxt.svg)](http://github.com/zzlw/andy-blog-nuxt/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/zzlw/andy-blog-nuxt.svg)](http://github.com/zzlw/andy-blog-nuxt/blob/master/LICENSE)
 
 - 适配多分辨率
 - 支持白昼黑夜主题切换
