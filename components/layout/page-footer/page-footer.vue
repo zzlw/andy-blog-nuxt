@@ -22,7 +22,7 @@
     </div>
     <div class="footer-copyright">
       <span class="copyright">© 2022 <span class="logo">Gavin</span></span>. All Right Reserved.
-      <a class="record-number" href="https://beian.miit.gov.cn" target="_blank">豫ICP备20005670号-1</a>
+      <a class="record-number" href="https://beian.miit.gov.cn" target="_blank">豫ICP备2022002177号-1</a>
     </div>
   </footer>
 </template>
