@@ -48,7 +48,7 @@ export default [
     { artist: "Interupt", name: "Power(In Your Soul).mp3", url: "https://resources.jiawen.live/music/Interupt%20-%20Power%28In%20Your%20Soul%29.mp3", cover: 'https://resources.jiawen.live/blog/asdf-avatar.jpg' },
     { artist: "J. Balvin", name: "Mi Gente.mp3", url: "https://resources.jiawen.live/music/J.%20Balvin%20-%20Mi%20Gente.mp3", cover: 'https://resources.jiawen.live/blog/asdf-avatar.jpg' },
     { artist: "Jaymes Young", name: "Infinity.mp3", url: "https://resources.jiawen.live/music/Jaymes%20Young%20-%20Infinity.mp3", cover: 'https://resources.jiawen.live/blog/asdf-avatar.jpg' },
-    { artist: "John Newman", name: "Blame.mp3", url: "https://resources.jiawen.live/music/John%20Newman%20-%20Blame.mp3", cover: 'https://resources.jiawen.live/blog/asdf-avatar.jpg'" },
+    { artist: "John Newman", name: "Blame.mp3", url: "https://resources.jiawen.live/music/John%20Newman%20-%20Blame.mp3", cover: 'https://resources.jiawen.live/blog/asdf-avatar.jpg' },
     { artist: "Justin Bieber", name: "As Long As You Love Me.mp3", url: "https://resources.jiawen.live/music/Justin%20Bieber%20-%20As%20Long%20As%20You%20Love%20Me.mp3", cover: 'https://resources.jiawen.live/blog/asdf-avatar.jpg' },
     { artist: "K-391", name: "Play.mp3", url: "https://resources.jiawen.live/music/K-391%20-%20Play.mp3", cover: 'https://resources.jiawen.live/blog/asdf-avatar.jpg' },
     { artist: "KarlK", name: "Daydreamer(Radio Edit).mp3", url: "https://resources.jiawen.live/music/KarlK%20-%20Daydreamer%28Radio%20Edit%29.mp3", cover: 'https://resources.jiawen.live/blog/asdf-avatar.jpg' },
