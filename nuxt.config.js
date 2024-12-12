@@ -24,15 +24,15 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'dns-prefetch', href: '//resources.jiawen.live' },
-      { rel: 'dns-prefetch', href: '//api.jiawen.live' },
-      { rel: 'stylesheet', href:   'https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css'}
+      { rel: 'dns-prefetch', href: `//${process.env.RESOURCES}` },
+      { rel: 'dns-prefetch', href: `//${process.env.API_DOMAIN}` },
+      { rel: 'stylesheet', href: 'https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css'}
     ],
     script: [
       {
         async: 'async',
         type: 'text/javascript',
-        src: 'https://resources.jiawen.live/intersection-polyfill.js'
+        src: `https://${process.env.RESOURCES}/intersection-polyfill.js`
       },
       {
         async: 'async',
@@ -135,19 +135,5 @@ module.exports = {
 
   styleResources: {
     scss: ['./assets/scss/variables.scss', './assets/scss/mixin.scss']
-  },
-  /*
-  ** Build configuration
-  */
-  build: {
-    /*
-    ** You can extend webpack config here
-    */
-    extend(config, ctx) {
-    }
-  },
-  serverMiddleware: [
-    // 将日志中间件添加到 Nuxt.js 中间件中
-    { path: '/api', handler: '~/serverMiddleware/logger.js' },
-  ],
+  }
 }
