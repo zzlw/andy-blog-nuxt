@@ -4,7 +4,7 @@ module.exports = {
 
   server: {
     host: '0.0.0.0',
-    port: 4000, // default: 5000
+    port: 3000, // default: 3000
   },
 
   /*
@@ -145,5 +145,9 @@ module.exports = {
     */
     extend(config, ctx) {
     }
-  }
+  },
+  serverMiddleware: [
+    // 将日志中间件添加到 Nuxt.js 中间件中
+    { path: '/api', handler: '~/serverMiddleware/logger.js' },
+  ],
 }

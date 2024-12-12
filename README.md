@@ -38,5 +38,5 @@ npm run build
 pm2 start npm --name nuxt -- start
 
 # docker
-docker container run -d --name andy-blog-nuxt -p 80:4000 zzlwte/andy-blog-nuxt
+docker container run -d --name andy-blog-nuxt -p 80:3000 zzlwte/andy-blog-nuxt
 ```
