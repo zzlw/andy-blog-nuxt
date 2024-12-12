@@ -24,15 +24,15 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'dns-prefetch', href: `//${process.env.RESOURCES}` },
-      { rel: 'dns-prefetch', href: `//${process.env.API_DOMAIN}` },
+      { rel: 'dns-prefetch', href: `//resources.jiawen.live` },
+      { rel: 'dns-prefetch', href: `//api.jiawen.live` },
       { rel: 'stylesheet', href: 'https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css'}
     ],
     script: [
       {
         async: 'async',
         type: 'text/javascript',
-        src: `https://${process.env.RESOURCES}/intersection-polyfill.js`
+        src: `https://resources.jiawen.live/intersection-polyfill.js`
       },
       {
         async: 'async',
