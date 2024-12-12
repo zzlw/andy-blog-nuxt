@@ -1,5 +1,5 @@
 const Config = {
-  baseUrl: process.env.NODE_ENV === 'production' ? 'https://api.jiawen.live' : 'http://localhost:3000',
-  staticPath: 'https://resources.jiawen.live'
+  baseUrl: process.env.API_DOMAIN,
+  staticPath: process.env.RESOURCES
 }
 export default Config
