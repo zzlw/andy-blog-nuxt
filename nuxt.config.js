@@ -34,21 +34,21 @@ module.exports = {
         type: 'text/javascript',
         src: `https://resources.jiawen.live/intersection-polyfill.js`
       },
-      {
-        async: 'async',
-        type: 'text/javascript',
-        src: 'https://www.googletagmanager.com/gtag/js?id=UA-160689475-1'
-      },
-      {
-        // Global site tag (gtag.js) - Google Analytics
-        type: 'text/javascript',
-        innerHTML: `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'UA-160689475-1');
-        `
-      },
+      // {
+      //   async: 'async',
+      //   type: 'text/javascript',
+      //   src: 'https://www.googletagmanager.com/gtag/js?id=UA-160689475-1'
+      // },
+      // {
+      //   // Global site tag (gtag.js) - Google Analytics
+      //   type: 'text/javascript',
+      //   innerHTML: `
+      //     window.dataLayer = window.dataLayer || [];
+      //     function gtag(){dataLayer.push(arguments);}
+      //     gtag('js', new Date());
+      //     gtag('config', 'UA-160689475-1');
+      //   `
+      // },
       {
         // async: 'async',
         type: 'text/javascript',
