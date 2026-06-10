@@ -43,8 +43,19 @@ marked.setOptions({
   },
 })
 
+// 阿里云 OSS 图片处理样式（默认访问规则：域名/key?x-oss-process=style/样式名）
+// 样式在 OSS 控制台「数据处理 → 图片处理」中维护：thumbnail（低清占位）/ progressive（渐进式）
+const ossStyle = (src, style) => `${src}?x-oss-process=style/${style}`
+
+// STATIC_PATH 支持逗号分隔多个域名（如新 OSS 域名 + 旧图床域名共存的过渡期）
+const isStaticHost = (src) =>
+  String(Config.staticPath || '')
+    .split(',')
+    .filter(Boolean)
+    .some((host) => src.includes(host.trim()))
+
 const imageParse = (src, title, alt) => {
-  if (!src.includes(Config.staticPath)) {
+  if (!isStaticHost(src)) {
     return `
       <figure class="image-wrapper">
         <div class="progress-image">
@@ -60,11 +71,11 @@ const imageParse = (src, title, alt) => {
   return `
     <figure class="image-wrapper">
       <div class="progress-image">
-        <img src="${src}-thumbnail" title="${title || alt || 'Gavin'}"
+        <img src="${ossStyle(src, 'thumbnail')}" title="${title || alt || 'Gavin'}"
           class="thumbnail"/>
         <img
           data-origin="${src}"
-          data-src="${src}-progressive" title="${title || alt || 'Gavin'}"
+          data-src="${ossStyle(src, 'progressive')}" title="${title || alt || 'Gavin'}"
           class="image-popper real-image"/>
       </div>
       <div class="image-caption">
