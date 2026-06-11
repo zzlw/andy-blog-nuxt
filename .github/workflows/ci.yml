@@ -1,5 +1,5 @@
 # =============================================================
-# CI/CD：PR 用 docker build 做构建验证（Vue3 + Vite 自研 SSR/BFF，以镜像构建为准）；
+# CI/CD：PR 用 docker build 做构建验证（Nuxt 4 SSR，以镜像构建为准）；
 # push 部署分支时构建镜像推送阿里云 ACR，并触发 andy-blog-deploy 部署
 #
 # 需要配置的 Secrets：

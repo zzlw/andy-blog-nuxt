@@ -1,0 +1,137 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+/* shadcn-vue 主题变量：亮色 = 白底 + 墨蓝文字 + 电光蓝主色 */
+:root {
+  --background: #ffffff;
+  --foreground: #161b3d;
+  --card: #ffffff;
+  --card-foreground: #161b3d;
+  --popover: #ffffff;
+  --popover-foreground: #161b3d;
+  --primary: #2821fc;
+  --primary-foreground: #ffffff;
+  --secondary: #f4f4f5;
+  --secondary-foreground: #161b3d;
+  --muted: #f4f4f5;
+  --muted-foreground: #6b7086;
+  --accent: #f4f4f5;
+  --accent-foreground: #161b3d;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #e6e7ec;
+  --input: #e6e7ec;
+  --ring: #2821fc;
+  --radius: 0.5rem;
+}
+
+/* 暗色 = 蓝灰深底 + 青蓝主色 */
+.dark {
+  --background: #1b1e26;
+  --foreground: #e6e8ee;
+  --card: #20242f;
+  --card-foreground: #e6e8ee;
+  --popover: #20242f;
+  --popover-foreground: #e6e8ee;
+  --primary: #75bfd7;
+  --primary-foreground: #10131a;
+  --secondary: #2a3040;
+  --secondary-foreground: #e6e8ee;
+  --muted: #272c39;
+  --muted-foreground: #9aa1b2;
+  --accent: #2a3040;
+  --accent-foreground: #e6e8ee;
+  --destructive: #f87171;
+  --destructive-foreground: #10131a;
+  --border: #2f3546;
+  --input: #2f3546;
+  --ring: #75bfd7;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+/* 文章正文 prose 细节微调 */
+.prose :is(h1, h2, h3, h4) {
+  scroll-margin-top: 5rem;
+}
+.prose {
+  a {
+    @apply text-primary no-underline border-b border-primary/30 transition-colors;
+  }
+  a:hover {
+    @apply border-primary;
+  }
+  img {
+    @apply rounded-lg mx-auto;
+  }
+  pre {
+    @apply rounded-lg;
+  }
+  code:not(pre code) {
+    @apply rounded bg-muted px-1.5 py-0.5 font-normal text-primary before:content-none after:content-none;
+  }
+}
+
+/* APlayer 固定吸底栏暗色适配 */
+.dark .aplayer {
+  background: var(--card);
+  color: var(--foreground);
+}
+.dark .aplayer .aplayer-info .aplayer-music .aplayer-title,
+.dark .aplayer .aplayer-info .aplayer-music .aplayer-author,
+.dark .aplayer .aplayer-list ol li .aplayer-list-index,
+.dark .aplayer .aplayer-list ol li .aplayer-list-author {
+  color: var(--foreground);
+}
+.dark .aplayer .aplayer-list ol li {
+  border-color: var(--border);
+}
+.dark .aplayer .aplayer-list ol li:hover {
+  background: var(--accent);
+}
+.dark .aplayer .aplayer-list ol li.aplayer-list-light {
+  background: var(--secondary);
+}
+.dark .aplayer .aplayer-miniswitcher {
+  background: var(--secondary);
+}
