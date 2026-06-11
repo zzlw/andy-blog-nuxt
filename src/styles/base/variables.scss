@@ -1,0 +1,45 @@
+// 尺寸与断点（被 vite additionalData 注入到所有 SCSS，仅放变量/mixin，不能产出 CSS）
+
+$container-width: 1050px;
+$navbar-height: 4rem;
+$aside-width: 16rem;
+$gap-lg: 1rem;
+$gap: 0.75rem;
+$gap-sm: 0.5rem;
+$radius: 6px;
+$mobile-breakpoint: 768px;
+
+$font-family:
+  -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei',
+  'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-family-mono: 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace;
+
+@mixin mobile {
+  @media (max-width: $mobile-breakpoint) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: ($mobile-breakpoint + 1px)) {
+    @content;
+  }
+}
+
+@mixin text-overflow($lines: 1) {
+  @if $lines == 1 {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  } @else {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $lines;
+  }
+}
+
+@mixin backdrop-blur($blur: 10px) {
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+}
