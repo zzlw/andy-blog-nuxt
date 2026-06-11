@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import axios from 'axios'
-import Config from '@/config'
+import Config, { resolveStaticDeep } from '@/config'
 
 const config = {
   baseURL: Config.baseUrl,
@@ -15,6 +15,9 @@ const _axios = axios.create(config)
 
 _axios.interceptors.request.use(originConfig => {
   const reqConfig = { ...originConfig }
+
+  // 每次请求时动态读取 baseURL（运行时配置可能在实例创建后才注入）
+  reqConfig.baseURL = Config.baseUrl
 
   // step1: 容错处理
   if (!reqConfig.url) {
@@ -66,13 +69,19 @@ _axios.interceptors.request.use(originConfig => {
   Promise.reject(error)
 })
 
+// 新版后端统一响应 { status: 'success' | 'error', message, result }
+// 成功直接解包 result；失败抛出响应体（含 message / error 错误码）供调用方捕获
 _axios.interceptors.response.use(async (res) => {
-  if (res.status.toString().charAt(0) === '2') {
-    return res.data
+  const body = res.data
+  if (res.status.toString().charAt(0) === '2' && body && body.status === 'success') {
+    // 统一把相对图片路径（cover/avatar）拼成绝对 URL，域名来自 STATIC_PATH
+    return resolveStaticDeep(body.result)
   }
+  return Promise.reject(body || new Error(`request failed with status ${res.status}`))
 }, error => {
   // eslint-disable-next-line no-console
   console.log(error)
+  return Promise.reject(error)
 })
 
 const Plugin = {}

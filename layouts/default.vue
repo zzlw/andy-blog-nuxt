@@ -25,6 +25,7 @@ import PageFooter from '@/components/layout/page-footer/page-footer'
 import PageSearch from '@/components/layout/page-search/page-search'
 import ScrollTop from '@/components/layout/scroll-top/scroll-top'
 import musics from '@/assets/music/index'
+import Config from '@/config'
 
 const navList = [
   {
@@ -82,11 +83,17 @@ export default {
   mounted() {
     const theme = window.localStorage.getItem('THEME')
     this.setTheme(theme || 'light')
+    // 音乐资源仅存相对路径，运行时拼接 staticPath（来自环境变量）
+    const audio = musics.map((m) => ({
+      ...m,
+      url: `${Config.staticPath}${m.url}`,
+      cover: `${Config.staticPath}${m.cover}`,
+    }))
     const ap = new window.APlayer({
       container: window.document.getElementById('aplayer'),
       fixed: true,
       theme: '#e9e9e9',
-      audio: musics,
+      audio,
     })
   }
 }

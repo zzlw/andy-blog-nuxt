@@ -4,6 +4,7 @@
 
 <script>
 import tagDetail from '@/components/layout/tag-detail/tag-detail'
+import Config from '@/config'
 
 export default {
   components: {
@@ -34,7 +35,7 @@ export default {
   created() {
     // 标签
     this.name = this.$nuxt.$route.query.name
-    this.cover = 'https://resources.jiawen.live/blog/lighthouse.jpeg'
+    this.cover = `${Config.staticPath}/blog/lighthouse.jpeg`
     this.id = parseInt(this.$nuxt.$route.params.id)
   }
 }

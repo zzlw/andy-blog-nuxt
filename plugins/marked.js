@@ -1,6 +1,6 @@
 import marked from 'marked'
 import highlight from './highlight'
-import Config from '../config'
+import Config, { resolveStatic } from '../config'
 import DOMPurify from 'dompurify'
 
 const languages = [
@@ -55,6 +55,8 @@ const isStaticHost = (src) =>
     .some((host) => src.includes(host.trim()))
 
 const imageParse = (src, title, alt) => {
+  // 正文里存的是相对路径，先拼成绝对 URL（域名来自 STATIC_PATH），外链保持原样
+  src = resolveStatic(src)
   if (!isStaticHost(src)) {
     return `
       <figure class="image-wrapper">

@@ -4,9 +4,8 @@ import {
 
 class Blog {
   // 获取所有友情链接
-  async getFriends() {
-    const res = await get('v1/blog/blog/friend/friends')
-    return res
+  getFriends() {
+    return get('api/friends')
   }
 }
 
