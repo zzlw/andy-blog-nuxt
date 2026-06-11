@@ -14,7 +14,6 @@ import App from './app.vue'
 
 export interface AppCreatorContext {
   theme: Theme
-  userAgent: string | undefined
   error?: AppErrorValue
   routerHistoryCreator(base?: string): RouterHistory
 }
@@ -25,7 +24,6 @@ export const createMainApp = (context: AppCreatorContext) => {
   const app = createSSRApp(App)
 
   const globalState = createGlobalState({
-    userAgent: context.userAgent || '',
     error: context.error ?? null
   })
 
@@ -40,8 +38,7 @@ export const createMainApp = (context: AppCreatorContext) => {
   const getGlobalHead = (): SerializableHead => ({
     htmlAttrs: {
       lang: 'zh-CN',
-      'data-theme': theme.theme.value,
-      'data-device': globalState.userAgent.isMobile ? 'mobile' : 'desktop'
+      'data-theme': theme.theme.value
     },
     meta: [
       { name: 'description', content: APP_META.description },

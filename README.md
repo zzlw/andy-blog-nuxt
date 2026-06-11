@@ -11,7 +11,7 @@ Gavin 的博客前端：**Vue 3 + Vite 自研 SSR + BFF 单进程**（架构对�
 - BFF：单 Node 进程 `dist/bff.js`，承载静态资源（sirv）、SSR 渲染、`/rss.xml`、`/sitemap.xml`
 - SSR 页面缓存：Redis 优先（`REDIS_URI`），失败回退内存 LRU，按 `route.meta.ssrCacheTTL` 缓存
 - 暗色模式：`data-theme` + localStorage + FOUC 防护内联脚本
-- 样式：SCSS + CSS 变量主题体系，桌面/移动双布局
+- 样式：SCSS + CSS 变量主题体系，单套代码响应式布局
 
 ## 目录结构
 

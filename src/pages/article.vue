@@ -2,16 +2,23 @@
   <div class="article-page">
     <Loading v-if="!article" />
     <template v-else>
-      <article class="article-main module">
-        <h1 class="title">{{ article.title }}</h1>
-        <div class="meta">
-          <span>{{ dateFormat(article.created_date) }}</span>
-          <router-link v-if="article.category" :to="`/category/${article.category.id}`" class="link">
-            {{ article.category.name }}
-          </router-link>
-          <span>{{ article.views }} 阅读</span>
-          <span v-for="author in article.authors" :key="author.id">{{ author.name }}</span>
-        </div>
+      <article class="article-main">
+        <header class="article-header">
+          <h1 class="title">{{ article.title }}</h1>
+          <div class="meta">
+            <span>{{ dateFormat(article.created_date) }}</span>
+            <template v-if="article.category">
+              <span class="dot">·</span>
+              <router-link :to="`/category/${article.category.id}`" class="link">
+                {{ article.category.name }}
+              </router-link>
+            </template>
+            <span class="dot">·</span>
+            <span>{{ readingMinutes }} 分钟阅读</span>
+            <span class="dot">·</span>
+            <span>{{ article.views }} 阅读</span>
+          </div>
+        </header>
         <div class="markdown-html" v-html="contentHtml"></div>
         <div class="article-footer">
           <div class="tags">
@@ -65,6 +72,11 @@ const articleId = computed(() => Number(route.params.id))
 const article = computed(() => detailStore.article)
 const contentHtml = computed(() => renderMarkdown(article.value?.content))
 const liked = computed(() => (article.value ? identity.isArticleLiked(article.value.id) : false))
+// 中文约 400 字/分钟
+const readingMinutes = computed(() => {
+  const length = article.value?.content?.length ?? 0
+  return Math.max(1, Math.round(length / 400))
+})
 
 useHead(
   computed(() => ({
@@ -99,28 +111,34 @@ const onLike = async () => {
 .article-page {
   display: flex;
   flex-direction: column;
-  gap: $gap-lg;
+  gap: 2.5rem;
 }
 
-.article-main {
-  padding: $gap-lg 1.5rem;
+.article-header {
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
 .title {
-  font-size: 1.5rem;
+  font-size: 1.9rem;
+  font-weight: 700;
   color: var(--color-text-darker);
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
 .meta {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
-  gap: 1em;
-  margin: 0.8em 0 1.2em;
-  padding-bottom: 0.8em;
-  border-bottom: 1px solid var(--color-text-divider);
-  font-size: 0.82rem;
+  align-items: center;
+  gap: 0.5em;
+  margin-top: 0.9em;
+  font-size: 0.85rem;
   color: var(--color-text-secondary);
+
+  .dot {
+    color: var(--color-text-divider);
+  }
 
   .link:hover {
     color: var(--color-primary);
@@ -131,8 +149,8 @@ const onLike = async () => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 1.5rem;
-  padding-top: 1rem;
+  margin-top: 2.5rem;
+  padding-top: 1.4rem;
   border-top: 1px solid var(--color-text-divider);
 }
 
@@ -173,16 +191,13 @@ const onLike = async () => {
   }
 }
 
-.related {
-  padding: $gap-lg;
-}
-
 .section-title {
   margin-bottom: $gap;
-  font-size: 1rem;
+  font-size: 1.05rem;
+  font-weight: 700;
   color: var(--color-text-darker);
   border-left: 3px solid var(--color-primary);
-  padding-left: 0.5em;
+  padding-left: 0.55em;
   line-height: 1.2;
 }
 
@@ -214,6 +229,20 @@ const onLike = async () => {
     margin-left: 1em;
     font-size: 0.8rem;
     color: var(--color-text-disabled);
+  }
+}
+
+@include mobile {
+  .article-page {
+    gap: 1.8rem;
+  }
+
+  .title {
+    font-size: 1.45rem;
+  }
+
+  .article-header {
+    margin-bottom: 1.4rem;
   }
 }
 </style>

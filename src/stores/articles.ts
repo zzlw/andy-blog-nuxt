@@ -42,12 +42,12 @@ export const useArticleListStore = defineStore('articleList', () => {
     }
   }
 
-  // 首页轮播：精选文章
-  const carouselArticles = shallowRef<Article[]>([])
-  const fetchCarousel = async () => {
-    const result = await blogApi.getArticles({ star: 2, page_size: 6 })
-    carouselArticles.value = result.data
+  // 首页 Hero：精选文章
+  const featuredArticles = shallowRef<Article[]>([])
+  const fetchFeatured = async () => {
+    const result = await blogApi.getArticles({ star: 2, page_size: 1 })
+    featuredArticles.value = result.data
   }
 
-  return { fetching, articles, pagination, params, hasMore, fetch, fetchMore, carouselArticles, fetchCarousel }
+  return { fetching, articles, pagination, params, hasMore, fetch, fetchMore, featuredArticles, fetchFeatured }
 })

@@ -30,16 +30,26 @@ defineEmits<{ loadmore: [] }>()
 .article-list {
   display: flex;
   flex-direction: column;
-  gap: $gap-lg;
+
+  // 列表行之间用分隔线（去卡片化；子组件根节点会带上父级 scope 属性）
+  .article-item + .article-item {
+    border-top: 1px solid var(--color-text-divider);
+  }
 }
 
 .loadmore {
-  padding: 0.8em;
+  align-self: center;
+  margin-top: 1.2rem;
+  padding: 0.55em 2.2em;
+  border: 1px solid var(--color-text-divider);
+  border-radius: 2em;
+  font-size: 0.9rem;
   color: var(--color-text-secondary);
   transition: all 0.2s;
 
   &:hover:not(:disabled) {
     color: var(--color-primary);
+    border-color: var(--color-primary-translucent);
   }
 
   &:disabled {

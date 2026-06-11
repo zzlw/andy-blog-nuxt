@@ -12,7 +12,7 @@ export type UniversalStore = ReturnType<typeof createUniversalStore>
 export const createUniversalStore = () => {
   const pinia = createPinia()
 
-  /** SSR：全局数据预取（布局侧栏依赖分类/标签） */
+  /** SSR：全局数据预取（导航抽屉/首页胶囊条/归档页依赖分类与标签） */
   const prefetchOnServer = async () => {
     await Promise.all([useCategoriesStore(pinia).fetch(), useTagsStore(pinia).fetch()])
   }

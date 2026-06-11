@@ -1,5 +1,5 @@
 /**
- * @file 全局状态（设备 / 错误 / hydration）
+ * @file 全局状态（错误 / hydration / UI 开关）
  */
 
 import { App, Plugin, inject, ref, computed } from 'vue'
@@ -9,24 +9,14 @@ import { formatErrorToAppError } from './error'
 export type AppErrorValue = AppError | null
 
 export interface GlobalStateConfig {
-  userAgent: string
   error?: AppErrorValue
 }
 
 const GlobalStateSymbol = Symbol('globalState')
 
-const isMobileUA = (ua: string) => {
-  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(ua)
-}
-
 export type GlobalState = ReturnType<typeof createGlobalStateInstance>
 
 const createGlobalStateInstance = (config: GlobalStateConfig) => {
-  const userAgent = {
-    original: config.userAgent,
-    isMobile: isMobileUA(config.userAgent)
-  }
-
   // hydration 状态
   const hydrated = ref(false)
   const isHydrated = computed(() => hydrated.value)
@@ -43,11 +33,10 @@ const createGlobalStateInstance = (config: GlobalStateConfig) => {
   // 全局 UI 开关
   const switcher = {
     searchVisible: ref(false),
-    mobileSidebarVisible: ref(false)
+    drawerVisible: ref(false)
   }
 
   return {
-    userAgent,
     isHydrated,
     setHydrate,
     error,

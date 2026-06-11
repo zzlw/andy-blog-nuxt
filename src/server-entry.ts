@@ -28,21 +28,18 @@ export interface RenderResult {
 
 interface SSRContext {
   requestUrl: string
-  userAgent?: string
   error: AppErrorValue
   cacheStatus?: 'hit' | 'miss'
 }
 
 const createSSRContext = (context: RequestContext, error: AppErrorValue = null): SSRContext => ({
   requestUrl: context.url,
-  userAgent: context.headers['user-agent'],
   error
 })
 
 const createSSRMainApp = (ssrContext: SSRContext): [MainApp, VueHeadClient] => {
   const mainApp = createMainApp({
     routerHistoryCreator: createMemoryHistory,
-    userAgent: ssrContext.userAgent,
     theme: Theme.Light, // 实际值由客户端 <head> 内联脚本决定
     error: ssrContext.error
   })
@@ -84,8 +81,8 @@ export const renderApp = async (context: RequestContext, cache: CacheStore): Pro
   const ssrContext = createSSRContext(context)
   const [{ app, router, store, globalState }, head] = createSSRMainApp(ssrContext)
 
-  const deviceType = globalState.userAgent.isMobile ? 'mobile' : 'desktop'
-  const cacheKey = `ssr:${deviceType}_${ssrContext.requestUrl}`
+  // 响应式单布局：同一 URL 只缓存一份
+  const cacheKey = `ssr:${ssrContext.requestUrl}`
 
   if (await cache.has(cacheKey)) {
     return {

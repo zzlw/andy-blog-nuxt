@@ -57,16 +57,12 @@ useUniversalFetch(() => Promise.all([authorsStore.fetch(), friendsStore.fetch()]
 .about-page {
   display: flex;
   flex-direction: column;
-  gap: $gap-lg;
-}
-
-.author-module,
-.friends-module {
-  padding: $gap-lg 1.5rem;
+  gap: 2rem;
 }
 
 .page-title {
-  font-size: 1.3rem;
+  font-size: 1.7rem;
+  font-weight: 700;
   color: var(--color-text-darker);
   margin-bottom: $gap-lg;
 }
@@ -111,10 +107,11 @@ useUniversalFetch(() => Promise.all([authorsStore.fetch(), friendsStore.fetch()]
 
 .section-title {
   margin-bottom: $gap;
-  font-size: 1rem;
+  font-size: 1.05rem;
+  font-weight: 700;
   color: var(--color-text-darker);
   border-left: 3px solid var(--color-primary);
-  padding-left: 0.5em;
+  padding-left: 0.55em;
   line-height: 1.2;
 }
 

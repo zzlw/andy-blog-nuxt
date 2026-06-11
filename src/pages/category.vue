@@ -1,9 +1,9 @@
 <template>
   <div class="category-page">
-    <div class="page-banner module">
-      <h1 class="banner-title">分类：{{ category?.name ?? `#${categoryId}` }}</h1>
+    <header class="page-banner">
+      <h1 class="banner-title">{{ category?.name ?? `分类 #${categoryId}` }}</h1>
       <p v-if="category?.description" class="banner-desc">{{ category.description }}</p>
-    </div>
+    </header>
     <ArticleList
       :articles="articleListStore.articles"
       :fetching="articleListStore.fetching"
@@ -52,15 +52,17 @@ if (isClient) {
 .category-page {
   display: flex;
   flex-direction: column;
-  gap: $gap-lg;
+  gap: $gap-sm;
 }
 
 .page-banner {
-  padding: $gap-lg 1.5rem;
+  padding-bottom: $gap;
+  border-bottom: 1px solid var(--color-text-divider);
 }
 
 .banner-title {
-  font-size: 1.3rem;
+  font-size: 1.7rem;
+  font-weight: 700;
   color: var(--color-text-darker);
 }
 

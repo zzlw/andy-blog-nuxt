@@ -89,18 +89,14 @@ const submit = async () => {
 .guestbook-page {
   display: flex;
   flex-direction: column;
-  gap: $gap-lg;
-}
-
-.editor-module,
-.list-module {
-  padding: $gap-lg 1.5rem;
+  gap: 2rem;
 }
 
 .page-title {
-  font-size: 1.3rem;
+  font-size: 1.7rem;
+  font-weight: 700;
   color: var(--color-text-darker);
-  margin-bottom: $gap;
+  margin-bottom: $gap-lg;
 }
 
 .message-editor {
@@ -110,16 +106,17 @@ const submit = async () => {
 }
 
 .field {
-  padding: 0.5em 0.8em;
+  padding: 0.6em 0.9em;
   border: 1px solid var(--color-text-divider);
   border-radius: $radius;
   outline: none;
-  background-color: var(--module-bg-opaque);
+  background-color: var(--module-bg-darker-1);
   color: var(--color-text);
-  transition: border-color 0.2s;
+  transition: all 0.2s;
 
   &:focus {
     border-color: var(--color-primary);
+    background-color: var(--module-bg-opaque);
   }
 }
 

@@ -110,16 +110,13 @@ const submit = async () => {
 </script>
 
 <style lang="scss" scoped>
-.comment-section {
-  padding: $gap-lg;
-}
-
 .section-title {
-  margin-bottom: $gap;
-  font-size: 1rem;
+  margin-bottom: $gap-lg;
+  font-size: 1.05rem;
+  font-weight: 700;
   color: var(--color-text-darker);
   border-left: 3px solid var(--color-primary);
-  padding-left: 0.5em;
+  padding-left: 0.55em;
   line-height: 1.2;
 }
 
@@ -156,16 +153,17 @@ const submit = async () => {
 .field {
   flex: 1;
   min-width: 0;
-  padding: 0.5em 0.8em;
+  padding: 0.6em 0.9em;
   border: 1px solid var(--color-text-divider);
   border-radius: $radius;
   outline: none;
-  background-color: var(--module-bg-opaque);
+  background-color: var(--module-bg-darker-1);
   color: var(--color-text);
-  transition: border-color 0.2s;
+  transition: all 0.2s;
 
   &:focus {
     border-color: var(--color-primary);
+    background-color: var(--module-bg-opaque);
   }
 }
 

@@ -1,53 +1,54 @@
-// 主题变量（:root[data-theme]，对齐 surmon.me 的 CSS 变量体系）
+// 主题变量（:root[data-theme]）
+// 配色沿用旧版 DNA：白底 + 墨蓝 #161b3d + 电光蓝 #2821fc；暗色为深蓝灰 + 青蓝 accent
 
 :root[data-theme='light'] {
-  --body-bg: #e3e3e3;
+  --body-bg: #fff;
   --theme-black: #000;
   --theme-white: #fff;
 
-  --color-primary: #0088f5;
-  --color-primary-lighter: rgba(0, 136, 245, 0.8);
-  --color-primary-translucent: rgba(0, 136, 245, 0.5);
+  --color-primary: #2821fc;
+  --color-primary-lighter: rgba(40, 33, 252, 0.8);
+  --color-primary-translucent: rgba(40, 33, 252, 0.32);
 
-  --color-link: rgba(0, 0, 0, 0.74);
-  --color-link-hover: rgba(0, 0, 0, 0.86);
+  --color-link: #3d4257;
+  --color-link-hover: #161b3d;
 
-  --color-text: rgba(0, 0, 0, 0.68);
-  --color-text-darker: rgba(0, 0, 0, 0.88);
-  --color-text-secondary: rgba(0, 0, 0, 0.5);
-  --color-text-disabled: rgba(0, 0, 0, 0.38);
-  --color-text-divider: rgba(0, 0, 0, 0.16);
-  --color-text-reversal: rgba(255, 255, 255, 0.92);
+  --color-text: #3d4257;
+  --color-text-darker: #161b3d;
+  --color-text-secondary: #6b7186;
+  --color-text-disabled: #9aa0b5;
+  --color-text-divider: rgba(22, 27, 61, 0.1);
+  --color-text-reversal: rgba(255, 255, 255, 0.94);
 
-  --module-bg: rgba(255, 255, 255, 0.6);
+  --module-bg: rgba(255, 255, 255, 0.85);
   --module-bg-opaque: #fff;
-  --module-bg-darker-1: #e8e8e8;
-  --module-bg-darker-2: #dedede;
-  --module-bg-darker-3: #cfcfcf;
+  --module-bg-darker-1: #f3f4f8;
+  --module-bg-darker-2: #e9ebf2;
+  --module-bg-darker-3: #d9dded;
 }
 
 :root[data-theme='dark'] {
-  --body-bg: #000;
+  --body-bg: #1b1e26;
   --theme-black: #fff;
-  --theme-white: #444;
+  --theme-white: #1b1e26;
 
-  --color-primary: #4eaaff;
-  --color-primary-lighter: rgba(78, 170, 255, 0.8);
-  --color-primary-translucent: rgba(78, 170, 255, 0.5);
+  --color-primary: #75bfd7;
+  --color-primary-lighter: rgba(117, 191, 215, 0.85);
+  --color-primary-translucent: rgba(117, 191, 215, 0.35);
 
-  --color-link: rgba(255, 255, 255, 0.92);
-  --color-link-hover: #fff;
+  --color-link: #c6cad6;
+  --color-link-hover: #f2f4fa;
 
-  --color-text: #f0f0f0;
-  --color-text-darker: #fff;
-  --color-text-secondary: rgba(240, 240, 240, 0.5);
-  --color-text-disabled: rgba(240, 240, 240, 0.38);
-  --color-text-divider: rgba(240, 240, 240, 0.2);
-  --color-text-reversal: rgba(0, 0, 0, 0.85);
+  --color-text: #c6cad6;
+  --color-text-darker: #f2f4fa;
+  --color-text-secondary: #8e94a8;
+  --color-text-disabled: #696f82;
+  --color-text-divider: rgba(242, 244, 250, 0.1);
+  --color-text-reversal: rgba(20, 22, 30, 0.92);
 
-  --module-bg: rgba(68, 68, 68, 0.6);
-  --module-bg-opaque: #444;
-  --module-bg-darker-1: #3a3a3a;
-  --module-bg-darker-2: #333;
-  --module-bg-darker-3: #2b2b2b;
+  --module-bg: rgba(27, 30, 38, 0.85);
+  --module-bg-opaque: #20242e;
+  --module-bg-darker-1: #252a36;
+  --module-bg-darker-2: #2c3240;
+  --module-bg-darker-3: #384052;
 }

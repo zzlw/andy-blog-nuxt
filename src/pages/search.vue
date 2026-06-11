@@ -1,9 +1,9 @@
 <template>
   <div class="search-page">
-    <div class="page-banner module">
+    <header class="page-banner">
       <h1 class="banner-title">搜索：{{ keyword }}</h1>
       <p v-if="pagination" class="banner-desc">共 {{ pagination.total }} 条结果</p>
-    </div>
+    </header>
     <ArticleList
       :articles="articleListStore.articles"
       :fetching="articleListStore.fetching"
@@ -48,15 +48,17 @@ if (isClient) {
 .search-page {
   display: flex;
   flex-direction: column;
-  gap: $gap-lg;
+  gap: $gap-sm;
 }
 
 .page-banner {
-  padding: $gap-lg 1.5rem;
+  padding-bottom: $gap;
+  border-bottom: 1px solid var(--color-text-divider);
 }
 
 .banner-title {
-  font-size: 1.3rem;
+  font-size: 1.7rem;
+  font-weight: 700;
   color: var(--color-text-darker);
 }
 

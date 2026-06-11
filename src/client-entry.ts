@@ -20,7 +20,6 @@ declare global {
 
 const { app, router, store, globalState, getGlobalHead } = createMainApp({
   routerHistoryCreator: createWebHistory,
-  userAgent: navigator.userAgent,
   theme: (window.initialTheme as Theme) ?? Theme.Light,
   error: getSSRContextValue('error') ?? null
 })

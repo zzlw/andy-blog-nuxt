@@ -1,8 +1,8 @@
 <template>
   <div class="tag-page">
-    <div class="page-banner module">
-      <h1 class="banner-title">标签：# {{ tag?.name ?? tagId }}</h1>
-    </div>
+    <header class="page-banner">
+      <h1 class="banner-title"># {{ tag?.name ?? tagId }}</h1>
+    </header>
     <ArticleList
       :articles="articleListStore.articles"
       :fetching="articleListStore.fetching"
@@ -51,15 +51,17 @@ if (isClient) {
 .tag-page {
   display: flex;
   flex-direction: column;
-  gap: $gap-lg;
+  gap: $gap-sm;
 }
 
 .page-banner {
-  padding: $gap-lg 1.5rem;
+  padding-bottom: $gap;
+  border-bottom: 1px solid var(--color-text-divider);
 }
 
 .banner-title {
-  font-size: 1.3rem;
+  font-size: 1.7rem;
+  font-weight: 700;
   color: var(--color-text-darker);
 }
 </style>

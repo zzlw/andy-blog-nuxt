@@ -1,20 +1,20 @@
 <template>
-  <div class="article-card module">
-    <router-link v-if="article.cover" :to="detailRoute" class="cover">
-      <img :src="coverUrl" :alt="article.title" loading="lazy" />
-    </router-link>
+  <article class="article-item">
     <div class="body">
       <h3 class="title">
         <router-link :to="detailRoute">{{ article.title }}</router-link>
       </h3>
       <p class="description">{{ article.description }}</p>
       <div class="meta">
-        <span class="meta-item">{{ dateFormat(article.created_date) }}</span>
-        <router-link v-if="article.category" :to="`/category/${article.category.id}`" class="meta-item link">
-          {{ article.category.name }}
-        </router-link>
-        <span class="meta-item">{{ article.views }} 阅读</span>
-        <span class="meta-item">{{ article.like }} 喜欢</span>
+        <span>{{ dateFormat(article.created_date) }}</span>
+        <template v-if="article.category">
+          <span class="dot">·</span>
+          <router-link :to="`/category/${article.category.id}`" class="link">
+            {{ article.category.name }}
+          </router-link>
+        </template>
+        <span class="dot">·</span>
+        <span>{{ article.views }} 阅读</span>
         <span class="tags">
           <router-link v-for="tag in article.tags" :key="tag.id" :to="`/tag/${tag.id}`" class="tag">
             # {{ tag.name }}
@@ -22,7 +22,10 @@
         </span>
       </div>
     </div>
-  </div>
+    <router-link v-if="article.cover" :to="detailRoute" class="cover">
+      <img :src="coverUrl" :alt="article.title" loading="lazy" />
+    </router-link>
+  </article>
 </template>
 
 <script setup lang="ts">
@@ -34,17 +37,20 @@ import { dateFormat } from '/@/transforms/date'
 const props = defineProps<{ article: Article }>()
 
 const detailRoute = computed(() => `/article/${props.article.id}`)
-const coverUrl = computed(() => resolveThumbnailUrl(props.article.cover, 600))
+const coverUrl = computed(() => resolveThumbnailUrl(props.article.cover, 480))
 </script>
 
 <style lang="scss" scoped>
-.article-card {
+.article-item {
   display: flex;
-  overflow: hidden;
-  transition: transform 0.2s ease;
+  align-items: flex-start;
+  gap: 1.4rem;
+  padding: 1.5rem 0;
 
   &:hover {
-    transform: translateY(-2px);
+    .title a {
+      color: var(--color-primary);
+    }
 
     .cover img {
       transform: scale(1.05);
@@ -52,11 +58,63 @@ const coverUrl = computed(() => resolveThumbnailUrl(props.article.cover, 600))
   }
 }
 
+.body {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  font-size: 1.18rem;
+  font-weight: 700;
+  line-height: 1.5;
+  @include text-overflow(2);
+
+  a {
+    color: var(--color-text-darker);
+    transition: color 0.2s;
+  }
+}
+
+.description {
+  margin-top: 0.45em;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  @include text-overflow(2);
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  margin-top: 0.7em;
+  font-size: 0.8rem;
+  color: var(--color-text-disabled);
+
+  .dot {
+    color: var(--color-text-divider);
+  }
+
+  .link:hover,
+  .tag:hover {
+    color: var(--color-primary);
+  }
+
+  .tags {
+    display: inline-flex;
+    gap: 0.6em;
+    margin-left: 0.4em;
+  }
+}
+
 .cover {
   flex-shrink: 0;
-  width: 13rem;
-  height: 9rem;
+  width: 11rem;
+  aspect-ratio: 8 / 5;
+  border-radius: $radius;
   overflow: hidden;
+  background-color: var(--module-bg-darker-1);
 
   img {
     width: 100%;
@@ -66,66 +124,27 @@ const coverUrl = computed(() => resolveThumbnailUrl(props.article.cover, 600))
   }
 }
 
-.body {
-  flex: 1;
-  min-width: 0;
-  padding: $gap-lg;
-  display: flex;
-  flex-direction: column;
-}
-
-.title {
-  font-size: 1.1rem;
-  @include text-overflow(1);
-
-  a {
-    color: var(--color-text-darker);
-
-    &:hover {
-      color: var(--color-primary);
-    }
-  }
-}
-
-.description {
-  flex: 1;
-  margin-top: 0.5em;
-  font-size: 0.9rem;
-  color: var(--color-text-secondary);
-  @include text-overflow(2);
-}
-
-.meta {
-  margin-top: 0.6em;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.9em;
-  font-size: 0.8rem;
-  color: var(--color-text-disabled);
-
-  .link:hover {
-    color: var(--color-primary);
-  }
-
-  .tags {
-    display: inline-flex;
-    gap: 0.6em;
-  }
-
-  .tag:hover {
-    color: var(--color-primary);
-  }
-}
-
 @include mobile {
-  .article-card {
-    flex-direction: column;
+  .article-item {
+    gap: 0.9rem;
+    padding: 1.1rem 0;
+  }
+
+  .title {
+    font-size: 1.05rem;
+  }
+
+  .description {
+    @include text-overflow(2);
+    font-size: 0.88rem;
   }
 
   .cover {
-    width: 100%;
-    height: 11rem;
+    width: 7rem;
+  }
+
+  .meta .tags {
+    display: none;
   }
 }
 </style>
