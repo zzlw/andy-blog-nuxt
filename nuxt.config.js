@@ -54,7 +54,8 @@ module.exports = {
       {
         async: 'async',
         type: 'text/javascript',
-        src: `${STATIC_PATH}/intersection-polyfill.js`
+        // 应用自身资产，放 static/ 随应用部署，不依赖对象存储
+        src: '/intersection-polyfill.js'
       },
       // {
       //   async: 'async',
