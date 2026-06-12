@@ -35,7 +35,8 @@
             :href="friend.link"
             target="_blank"
             rel="external nofollow noopener"
-            class="flex items-center gap-2 rounded-full border border-border py-1.5 pr-4 pl-1.5 text-sm transition-colors hover:border-primary hover:text-primary"
+            class="flex items-center gap-2 rounded-full border border-border py-1.5 pr-4 text-sm transition-colors hover:border-primary hover:text-primary"
+            :class="friend.avatar ? 'pl-1.5' : 'pl-4'"
           >
             <img
               v-if="friend.avatar"
