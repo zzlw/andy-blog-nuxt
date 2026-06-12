@@ -5,7 +5,7 @@
   >
     <div v-if="article.cover" class="overflow-hidden rounded-xl bg-muted lg:order-2 lg:col-span-5">
       <img
-        :src="thumbnailUrl(article.cover, 400)"
+        :src="thumbnailUrl(article.cover, 800)"
         :alt="article.title"
         class="aspect-[4/3] size-full object-cover transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-[1.04]"
       />
