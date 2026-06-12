@@ -169,26 +169,4 @@
   }
 }
 
-/* APlayer 固定吸底栏暗色适配 */
-.dark .aplayer {
-  background: var(--card);
-  color: var(--foreground);
-}
-.dark .aplayer .aplayer-info .aplayer-music .aplayer-title,
-.dark .aplayer .aplayer-info .aplayer-music .aplayer-author,
-.dark .aplayer .aplayer-list ol li .aplayer-list-index,
-.dark .aplayer .aplayer-list ol li .aplayer-list-author {
-  color: var(--foreground);
-}
-.dark .aplayer .aplayer-list ol li {
-  border-color: var(--border);
-}
-.dark .aplayer .aplayer-list ol li:hover {
-  background: var(--accent);
-}
-.dark .aplayer .aplayer-list ol li.aplayer-list-light {
-  background: var(--secondary);
-}
-.dark .aplayer .aplayer-miniswitcher {
-  background: var(--secondary);
-}
+/* APlayer 第三方插件不做主题适配，任何主题下保持默认白色外观 */
