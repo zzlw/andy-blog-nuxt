@@ -1,8 +1,10 @@
 <template>
   <PageShell>
-    <div class="flex flex-col gap-8">
+    <div class="flex flex-col gap-12">
       <HeroArticle v-if="featured" :article="featured" />
-      <ArticleListView data-key="home" />
+      <div :class="featured ? 'border-t border-border' : ''">
+        <ArticleListView data-key="home" />
+      </div>
     </div>
   </PageShell>
 </template>

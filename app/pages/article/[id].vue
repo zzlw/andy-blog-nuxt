@@ -6,9 +6,9 @@
 
     <article v-if="article">
       <header>
-        <h1 class="text-2xl leading-snug font-bold sm:text-3xl">{{ article.title }}</h1>
+        <h1 class="font-display text-3xl leading-[1.15] font-bold tracking-tight sm:text-4xl">{{ article.title }}</h1>
         <p class="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
-          <time class="inline-flex items-center gap-1">
+          <time class="inline-flex items-center gap-1.5 font-mono text-[13px]">
             <Calendar class="size-4" />{{ dateFormat(article.created_date) }}
           </time>
           <NuxtLink
@@ -43,7 +43,7 @@
       <template v-if="article.related?.length">
         <Separator class="my-10" />
         <section>
-          <h3 class="mb-5 border-l-3 border-primary pl-2.5 text-base leading-none font-bold">相关文章</h3>
+          <h3 class="mb-6 font-display text-xl font-bold tracking-tight">相关文章</h3>
           <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <NuxtLink
               v-for="item in article.related"
@@ -53,7 +53,7 @@
             >
               <div v-if="item.cover" class="aspect-[2/1] overflow-hidden bg-muted">
                 <img
-                  :src="thumbnailUrl(item.cover, 500)"
+                  :src="thumbnailUrl(item.cover, 400)"
                   :alt="item.title"
                   loading="lazy"
                   class="size-full object-cover transition-transform duration-300 group-hover:scale-105"

@@ -42,7 +42,10 @@
         </SheetContent>
       </Sheet>
 
-      <NuxtLink to="/" class="text-lg font-bold tracking-wide transition-colors hover:text-primary">
+      <NuxtLink
+        to="/"
+        class="font-display text-lg font-bold tracking-tight transition-colors duration-200 hover:text-primary"
+      >
         {{ APP_META.title }}
       </NuxtLink>
 

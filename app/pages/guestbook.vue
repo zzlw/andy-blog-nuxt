@@ -2,13 +2,21 @@
   <PageShell>
     <div class="flex flex-col gap-8">
       <header>
-        <h1 class="text-2xl font-bold">留言板</h1>
+        <h1 class="font-display text-3xl font-bold tracking-tight">留言板</h1>
         <p class="mt-2 text-sm text-muted-foreground">说点什么吧，匿名也可以</p>
       </header>
 
-      <form class="flex flex-col gap-3" @submit.prevent="submit">
-        <Input v-model="form.nickname" placeholder="昵称（可选）" class="sm:max-w-60" />
-        <Textarea v-model="form.content" placeholder="留言内容…" rows="4" required />
+      <form class="flex flex-col gap-4" @submit.prevent="submit">
+        <div class="flex flex-col gap-2 sm:max-w-60">
+          <label for="guestbook-nickname" class="text-sm font-medium">
+            昵称<span class="ml-1 text-xs font-normal text-muted-foreground">可选</span>
+          </label>
+          <Input id="guestbook-nickname" v-model="form.nickname" placeholder="如何称呼你" />
+        </div>
+        <div class="flex flex-col gap-2">
+          <label for="guestbook-content" class="text-sm font-medium">留言内容</label>
+          <Textarea id="guestbook-content" v-model="form.content" placeholder="说点什么…" rows="4" required />
+        </div>
         <div class="text-right">
           <Button type="submit" :disabled="submitting || !form.content.trim()">
             {{ submitting ? '提交中…' : '留言' }}

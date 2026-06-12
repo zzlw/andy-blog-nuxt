@@ -2,7 +2,7 @@
   <PageShell>
     <div class="flex flex-col gap-6">
       <header v-if="tag">
-        <h1 class="text-2xl font-bold"># {{ tag.name }}</h1>
+        <h1 class="font-display text-3xl font-bold tracking-tight"># {{ tag.name }}</h1>
       </header>
       <ArticleListView :data-key="`tag-${tagId}`" :params="{ tag_id: tagId }" />
     </div>

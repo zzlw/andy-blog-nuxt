@@ -2,7 +2,7 @@
   <PageShell>
     <div class="flex flex-col gap-6">
       <header v-if="category">
-        <h1 class="text-2xl font-bold">{{ category.name }}</h1>
+        <h1 class="font-display text-3xl font-bold tracking-tight">{{ category.name }}</h1>
         <p v-if="category.description" class="mt-2 text-sm text-muted-foreground">{{ category.description }}</p>
       </header>
       <ArticleListView :data-key="`category-${categoryId}`" :params="{ category_id: categoryId }" />

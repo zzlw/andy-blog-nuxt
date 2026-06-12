@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col gap-8">
     <section v-if="categories.length">
-      <h3 class="mb-3 border-l-3 border-primary pl-2.5 text-sm leading-none font-bold">分类</h3>
+      <h3 class="mb-4 font-display text-sm font-bold tracking-tight">分类</h3>
       <nav class="flex flex-col">
         <NuxtLink
           v-for="category in categories"
@@ -16,7 +16,7 @@
     </section>
 
     <section v-if="tags.length">
-      <h3 class="mb-3 border-l-3 border-primary pl-2.5 text-sm leading-none font-bold">标签</h3>
+      <h3 class="mb-4 font-display text-sm font-bold tracking-tight">标签</h3>
       <div class="flex flex-wrap gap-2">
         <NuxtLink v-for="tag in tags" :key="tag.id" :to="`/tag/${tag.id}`">
           <Badge variant="secondary" class="font-normal transition-colors hover:bg-primary hover:text-primary-foreground">
@@ -27,7 +27,7 @@
     </section>
 
     <section v-if="latest.length">
-      <h3 class="mb-3 border-l-3 border-primary pl-2.5 text-sm leading-none font-bold">最新文章</h3>
+      <h3 class="mb-4 font-display text-sm font-bold tracking-tight">最新文章</h3>
       <nav class="flex flex-col gap-3">
         <NuxtLink
           v-for="article in latest"

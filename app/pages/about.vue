@@ -2,7 +2,7 @@
   <PageShell>
     <div class="flex flex-col gap-10">
       <section>
-        <h1 class="text-2xl font-bold">关于</h1>
+        <h1 class="font-display text-3xl font-bold tracking-tight">关于</h1>
         <div class="mt-6 flex flex-col gap-6">
           <div v-for="author in authors" :key="author.id" class="flex items-center gap-5">
             <img
@@ -27,7 +27,7 @@
       </section>
 
       <section v-if="friends.length">
-        <h3 class="mb-4 border-l-3 border-primary pl-2.5 text-base leading-none font-bold">友情链接</h3>
+        <h3 class="mb-6 font-display text-xl font-bold tracking-tight">友情链接</h3>
         <div class="flex flex-wrap gap-3">
           <a
             v-for="friend in friends"

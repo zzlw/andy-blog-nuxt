@@ -1,7 +1,7 @@
 <template>
   <div v-if="toc.length" class="flex flex-col gap-8">
     <section>
-      <h3 class="mb-3 border-l-3 border-primary pl-2.5 text-sm leading-none font-bold">目录</h3>
+      <h3 class="mb-4 font-display text-sm font-bold tracking-tight">目录</h3>
       <nav class="flex max-h-[60vh] flex-col gap-0.5 overflow-y-auto text-sm">
         <a
           v-for="item in toc"
