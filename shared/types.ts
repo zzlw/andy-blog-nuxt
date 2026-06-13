@@ -24,6 +24,8 @@ export interface Category {
 export interface Tag {
   id: number
   name: string
+  /** 已发布且公开的文章数（后端 /tags 附带，用于热门排序与隐藏空标签） */
+  article_count?: number
 }
 
 export interface Author {
