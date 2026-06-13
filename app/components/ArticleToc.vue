@@ -12,6 +12,7 @@
             item.level === 2 ? 'pl-2' : item.level === 3 ? 'pl-6' : 'pl-10',
             activeId === item.id ? 'font-medium text-primary' : 'text-muted-foreground'
           ]"
+          @click.prevent="scrollToHeading(item.id)"
         >
           {{ item.text }}
         </a>
@@ -27,6 +28,15 @@ import type { TocItem } from '~/utils/markdown'
 const props = defineProps<{ toc: TocItem[] }>()
 
 const activeId = ref('')
+
+// 全局已移除 CSS 平滑滚动，这里用 JS 平滑滚动到锚点（留出顶部导航高度）
+const scrollToHeading = (id: string) => {
+  const el = document.getElementById(id)
+  if (!el) return
+  const top = el.getBoundingClientRect().top + window.scrollY - 72
+  window.scrollTo({ top, behavior: 'smooth' })
+  history.replaceState(history.state, '', `#${id}`)
+}
 let observer: IntersectionObserver | null = null
 
 const observe = () => {

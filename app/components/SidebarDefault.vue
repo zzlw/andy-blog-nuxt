@@ -15,23 +15,15 @@
       </nav>
     </section>
 
-    <section v-if="sortedTags.length">
-      <h3 class="mb-4 font-display text-sm font-bold tracking-tight">标签</h3>
+    <section v-if="popularTags.length">
+      <h3 class="mb-4 font-display text-sm font-bold tracking-tight">热门标签</h3>
       <div class="flex flex-wrap gap-2">
-        <NuxtLink v-for="tag in visibleTags" :key="tag.id" :to="`/tag/${tag.id}`">
+        <NuxtLink v-for="tag in popularTags" :key="tag.id" :to="`/tag/${tag.id}`">
           <Badge variant="secondary" class="font-normal transition-colors hover:bg-primary hover:text-primary-foreground">
             {{ tag.name }}
           </Badge>
         </NuxtLink>
       </div>
-      <button
-        v-if="sortedTags.length > TAG_LIMIT"
-        type="button"
-        class="mt-3 text-xs text-muted-foreground transition-colors hover:text-primary"
-        @click="tagsExpanded = !tagsExpanded"
-      >
-        {{ tagsExpanded ? '收起' : `查看全部 ${sortedTags.length} 个标签` }}
-      </button>
     </section>
 
     <section v-if="latest.length">
@@ -56,26 +48,19 @@
 <script setup lang="ts">
 import { Folder } from 'lucide-vue-next'
 
-const TAG_LIMIT = 24
-
 const { data: categories } = useCategoriesData()
 const { data: tags } = useTagsData()
 const { data: latest } = useLatestArticlesData()
 
-const tagsExpanded = ref(false)
-
-// 后端是否返回了计数信息（向后兼容：老接口无 article_count 时不过滤，避免清空）
-const hasCounts = computed(() => (tags.value ?? []).some((tag) => tag.article_count !== undefined))
-
-// 仅保留有文章的标签，按文章数降序（热门优先），同数按名称稳定排序
-const sortedTags = computed(() =>
-  [...(tags.value ?? [])]
-    .filter((tag) => !hasCounts.value || (tag.article_count ?? 0) > 0)
-    .sort((a, b) => (b.article_count ?? 0) - (a.article_count ?? 0) || a.name.localeCompare(b.name))
-)
-
-// 默认只展示热门 TAG_LIMIT 个，其余折叠到「查看全部」之后
-const visibleTags = computed(() =>
-  tagsExpanded.value ? sortedTags.value : sortedTags.value.slice(0, TAG_LIMIT)
-)
+// 侧栏只展示热门标签：按文章数降序取前 N，隐藏空标签，避免长尾标签把侧栏撑得过长（业内常见做法）
+const MAX_SIDEBAR_TAGS = 20
+const popularTags = computed(() => {
+  const list = tags.value ?? []
+  // 后端会返回 article_count；优先取有文章的标签，缺失计数时降级展示全部
+  const withArticles = list.filter((tag) => (tag.article_count ?? 0) > 0)
+  const base = withArticles.length ? withArticles : list
+  return [...base]
+    .sort((a, b) => (b.article_count ?? 0) - (a.article_count ?? 0))
+    .slice(0, MAX_SIDEBAR_TAGS)
+})
 </script>
