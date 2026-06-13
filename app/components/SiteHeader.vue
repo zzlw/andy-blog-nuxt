@@ -65,6 +65,11 @@
         <Button variant="ghost" size="icon" aria-label="搜索" @click="searchOpen = true">
           <Search class="size-5" />
         </Button>
+        <Button as-child variant="ghost" size="icon" aria-label="GitHub">
+          <a :href="APP_META.github" target="_blank" rel="noopener noreferrer">
+            <Github class="size-5" />
+          </a>
+        </Button>
         <ClientOnly>
           <Button
             variant="ghost"
@@ -89,7 +94,7 @@
 </template>
 
 <script setup lang="ts">
-import { Menu, Search, Sun, Moon } from 'lucide-vue-next'
+import { Menu, Search, Sun, Moon, Github } from 'lucide-vue-next'
 import { APP_META } from '#shared/meta'
 
 const navItems = [

@@ -12,10 +12,10 @@
           v-if="!open"
           type="button"
           aria-label="打开 AI 助手"
-          class="fixed right-5 bottom-40 z-50 flex size-12 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg transition-all ease-[var(--ease-out-expo)] hover:scale-105 active:scale-95"
+          class="ai-fab fixed right-5 bottom-40 z-50 flex size-12 items-center justify-center rounded-full text-white transition-transform ease-[var(--ease-out-expo)] hover:scale-105 active:scale-95"
           @click="toggle"
         >
-          <Sparkles class="size-5" />
+          <Sparkles class="size-5 drop-shadow-[0_1px_2px_rgba(0,0,0,0.25)]" />
         </button>
       </Transition>
 

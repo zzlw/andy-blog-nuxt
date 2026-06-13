@@ -11,6 +11,8 @@ export const APP_META = {
   keywords: '前端,JavaScript,博客,Node,Vue,React',
   email: 'zzlwte@gmail.com',
   url: 'https://jiawen.live',
+  /** GitHub 主页 */
+  github: 'https://github.com/zzlw',
   /** 工信部 ICP 备案号（要求展示在全站底部并链接到备案管理系统） */
   icp: '豫ICP备2022002177号-1'
 } as const

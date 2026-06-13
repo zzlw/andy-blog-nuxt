@@ -166,6 +166,45 @@
   }
 }
 
+/* AI 助手悬浮按钮：流动渐变 + 柔光脉冲，营造“高级感”
+   （prefers-reduced-motion 下全局已将动画降级为静态，渐变会停在初始帧仍美观） */
+@keyframes ai-fab-pan {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes ai-fab-glow {
+  0%,
+  100% {
+    box-shadow:
+      0 6px 18px -4px rgba(99, 102, 241, 0.5),
+      0 0 0 0 rgba(139, 92, 246, 0);
+  }
+  50% {
+    box-shadow:
+      0 10px 28px -2px rgba(34, 211, 238, 0.55),
+      0 0 22px 3px rgba(139, 92, 246, 0.35);
+  }
+}
+.ai-fab {
+  background-image: linear-gradient(120deg, #6366f1, #8b5cf6, #22d3ee, #2563eb, #6366f1);
+  background-size: 200% 200%;
+  animation:
+    ai-fab-pan 6s ease infinite,
+    ai-fab-glow 3.6s ease-in-out infinite;
+}
+@media (hover: hover) {
+  .ai-fab:hover {
+    animation-duration: 3s, 3.6s;
+  }
+}
+
 /* APlayer 第三方插件不做主题适配，任何主题下保持默认白色外观；
    文字颜色固定深色（标题等元素无显式颜色，会继承暗色主题的浅色前景导致看不清） */
 .aplayer {
