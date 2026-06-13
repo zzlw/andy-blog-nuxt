@@ -7,5 +7,6 @@
     <SiteFooter />
     <MusicPlayer />
     <BackTop />
+    <AiChatWidget />
   </div>
 </template>

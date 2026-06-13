@@ -30,7 +30,10 @@ export default defineNuxtConfig({
       // 浏览器走公网地址（NUXT_PUBLIC_API_BASE）
       apiBase: 'http://localhost:9000',
       // 静态资源域名，支持逗号分隔多域名（NUXT_PUBLIC_STATIC_PATH）
-      staticPath: ''
+      staticPath: '',
+      // AI 对话助手服务地址（surmon.me.ai / Cloudflare Workers，NUXT_PUBLIC_AI_API_BASE）
+      // 留空则不渲染 AI 助手浮窗，便于后端未就绪时安全降级
+      aiApiBase: ''
     }
   },
 

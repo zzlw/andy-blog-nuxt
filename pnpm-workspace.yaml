@@ -1,0 +1,8 @@
+# pnpm 10+ 默认不执行依赖的安装期构建脚本（供应链安全），需显式批准；
+# 否则在干净环境（如 Docker 构建）里 esbuild 缺少二进制、vue-demi 未生成 shim，
+# 会导致 `pnpm install --frozen-lockfile` 直接报错退出（ERR_PNPM_IGNORED_BUILDS）。
+# 由 `pnpm approve-builds --all` 生成，新增原生依赖时重新执行即可。
+allowBuilds:
+  '@parcel/watcher': true
+  esbuild: true
+  vue-demi: true
