@@ -12,7 +12,7 @@
           v-if="!open"
           type="button"
           aria-label="打开 AI 助手"
-          class="ai-fab fixed right-5 bottom-40 z-50 flex size-12 items-center justify-center rounded-full text-white transition-transform ease-[var(--ease-out-expo)] hover:scale-105 active:scale-95"
+          class="ai-fab fixed right-5 bottom-40 z-50 flex size-12 cursor-pointer items-center justify-center rounded-full text-white transition-transform ease-[var(--ease-out-expo)] hover:scale-105 active:scale-95"
           @click="toggle"
         >
           <Sparkles class="size-5 drop-shadow-[0_1px_2px_rgba(0,0,0,0.25)]" />
@@ -44,7 +44,7 @@
             <button
               type="button"
               aria-label="关闭"
-              class="flex size-8 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
+              class="flex size-8 cursor-pointer items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
               @click="toggle"
             >
               <X class="size-4" />
@@ -68,7 +68,7 @@
                   v-for="prompt in suggestedPrompts"
                   :key="prompt"
                   type="button"
-                  class="rounded-lg border border-border px-3 py-2 text-left text-sm transition-colors hover:border-primary hover:text-primary"
+                  class="cursor-pointer rounded-lg border border-border px-3 py-2 text-left text-sm transition-colors hover:border-primary hover:text-primary"
                   @click="send(prompt)"
                 >
                   {{ prompt }}

@@ -26,7 +26,7 @@
       </div>
       <div v-if="replyTo" class="flex items-center gap-2 text-sm text-muted-foreground">
         <span>回复 @{{ replyTo.nickname }}</span>
-        <button type="button" class="text-primary hover:underline" @click="replyTo = null">取消</button>
+        <button type="button" class="cursor-pointer text-primary hover:underline" @click="replyTo = null">取消</button>
       </div>
       <div class="flex flex-col gap-2">
         <label for="comment-content" class="text-sm font-medium">评论内容</label>
