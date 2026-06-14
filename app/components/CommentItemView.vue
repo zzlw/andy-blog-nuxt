@@ -23,7 +23,7 @@
       <p class="mt-2 flex items-center gap-4 text-xs text-muted-foreground">
         <button
           type="button"
-          class="inline-flex cursor-pointer items-center gap-1 transition-colors hover:text-primary disabled:cursor-default"
+          class="inline-flex cursor-pointer items-center gap-1 transition-colors hover:text-primary disabled:cursor-not-allowed"
           :class="{ 'text-primary': liked }"
           :disabled="liked"
           @click="emit('like', comment)"
