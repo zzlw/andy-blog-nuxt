@@ -1,0 +1,13 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    # 关闭日常版本更新 PR，仅保留安全更新（避免噪音）
+    open-pull-requests-limit: 0
+    ignore:
+      # esbuild 被 Vite 7 / Nuxt 锁在 ^0.25，告警要求的修复版本（0.28.x）尚不存在、无法解析，
+      # 安全更新每次必然失败；且当前 0.25.x 已包含 dev-server CORS 修复（仅影响本地开发）。
+      # 待上游升级带上更高版本后再移除此忽略。
+      - dependency-name: "esbuild"
