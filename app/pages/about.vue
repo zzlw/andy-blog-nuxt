@@ -2,7 +2,7 @@
   <PageShell>
     <div class="flex flex-col gap-10">
       <section>
-        <h1 class="font-display text-3xl font-bold tracking-tight">关于</h1>
+        <h1 class="font-display text-3xl font-bold tracking-tight">{{ t('about.title') }}</h1>
         <div class="mt-6 flex flex-col gap-6">
           <div v-for="author in authors" :key="author.id" class="flex items-center gap-5">
             <img
@@ -27,7 +27,7 @@
       </section>
 
       <section v-if="friends.length">
-        <h3 class="mb-6 font-display text-xl font-bold tracking-tight">友情链接</h3>
+        <h3 class="mb-6 font-display text-xl font-bold tracking-tight">{{ t('about.friends') }}</h3>
         <div class="flex flex-wrap gap-3">
           <a
             v-for="friend in friends"
@@ -55,6 +55,8 @@
 <script setup lang="ts">
 import { APP_META } from '#shared/meta'
 
+const { t } = useI18n()
+
 const api = useBlogApi()
 const { staticUrl } = useStaticUrl()
 
@@ -63,5 +65,5 @@ const [{ data: authors }, { data: friends }] = await Promise.all([
   useAsyncData('friends', () => api.getFriends(), { default: () => [] })
 ])
 
-useSeoMeta({ title: '关于' })
+useSeoMeta({ title: () => t('about.title') })
 </script>

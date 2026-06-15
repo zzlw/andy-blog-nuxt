@@ -9,7 +9,7 @@
       v-if="visible"
       variant="outline"
       size="icon"
-      aria-label="回到顶部"
+      :aria-label="t('backTop')"
       class="fixed right-5 bottom-24 z-40 rounded-full shadow-md"
       @click="scrollToTop"
     >
@@ -20,6 +20,8 @@
 
 <script setup lang="ts">
 import { ArrowUp } from 'lucide-vue-next'
+
+const { t } = useI18n()
 
 const visible = ref(false)
 

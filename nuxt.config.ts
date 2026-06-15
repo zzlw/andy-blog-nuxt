@@ -3,7 +3,26 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineNuxtConfig({
   compatibilityDate: '2026-06-01',
 
-  modules: ['@nuxtjs/color-mode', 'shadcn-nuxt'],
+  modules: ['@nuxtjs/color-mode', 'shadcn-nuxt', '@nuxtjs/i18n'],
+
+  i18n: {
+    // 文章内容由后端提供（统一中文），多语言仅作用于站点 UI；
+    // 故采用 no_prefix 策略 + Cookie 持久化，避免相同内容产生重复 URL（SEO 友好）。
+    strategy: 'no_prefix',
+    defaultLocale: 'zh-Hans',
+    vueI18n: 'i18n.config.ts',
+    locales: [
+      { code: 'zh-Hans', language: 'zh-CN', name: '简体中文', file: 'zh-Hans.json' },
+      { code: 'zh-Hant', language: 'zh-TW', name: '繁體中文', file: 'zh-Hant.json' },
+      { code: 'en', language: 'en-US', name: 'English', file: 'en.json' }
+    ],
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_locale',
+      // no_prefix 下仅用于首访挑选语言并写入 Cookie
+      redirectOn: 'root'
+    }
+  },
 
   shadcn: {
     prefix: '',
@@ -50,7 +69,6 @@ export default defineNuxtConfig({
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
     head: {
-      htmlAttrs: { lang: 'zh-CN' },
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'author', content: 'Gavin' }

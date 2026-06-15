@@ -2,24 +2,24 @@
   <PageShell>
     <div class="flex flex-col gap-8">
       <header>
-        <h1 class="font-display text-3xl font-bold tracking-tight">留言板</h1>
-        <p class="mt-2 text-sm text-muted-foreground">说点什么吧，匿名也可以</p>
+        <h1 class="font-display text-3xl font-bold tracking-tight">{{ t('guestbook.title') }}</h1>
+        <p class="mt-2 text-sm text-muted-foreground">{{ t('guestbook.subtitle') }}</p>
       </header>
 
       <form class="flex flex-col gap-4" @submit.prevent="submit">
         <div class="flex flex-col gap-2 sm:max-w-60">
           <label for="guestbook-nickname" class="text-sm font-medium">
-            昵称<span class="ml-1 text-xs font-normal text-muted-foreground">可选</span>
+            {{ t('guestbook.nickname') }}<span class="ml-1 text-xs font-normal text-muted-foreground">{{ t('guestbook.optional') }}</span>
           </label>
-          <Input id="guestbook-nickname" v-model="form.nickname" placeholder="如何称呼你" />
+          <Input id="guestbook-nickname" v-model="form.nickname" :placeholder="t('guestbook.nicknamePlaceholder')" />
         </div>
         <div class="flex flex-col gap-2">
-          <label for="guestbook-content" class="text-sm font-medium">留言内容</label>
-          <Textarea id="guestbook-content" v-model="form.content" placeholder="说点什么…" rows="4" required />
+          <label for="guestbook-content" class="text-sm font-medium">{{ t('guestbook.content') }}</label>
+          <Textarea id="guestbook-content" v-model="form.content" :placeholder="t('guestbook.contentPlaceholder')" rows="4" required />
         </div>
         <div class="text-right">
           <Button type="submit" :disabled="submitting || !form.content.trim()">
-            {{ submitting ? '提交中…' : '留言' }}
+            {{ submitting ? t('guestbook.submitting') : t('guestbook.submit') }}
           </Button>
         </div>
       </form>
@@ -29,22 +29,22 @@
           <div
             class="flex size-9 shrink-0 items-center justify-center rounded-full bg-secondary text-sm font-bold text-primary"
           >
-            {{ (message.nickname || '匿').slice(0, 1).toUpperCase() }}
+            {{ (message.nickname || t('guestbook.anonymous')).slice(0, 1).toUpperCase() }}
           </div>
           <div class="min-w-0 flex-1">
             <p class="flex flex-wrap items-center gap-x-2 text-sm">
-              <span class="font-medium">{{ message.nickname || '匿名' }}</span>
+              <span class="font-medium">{{ message.nickname || t('guestbook.anonymous') }}</span>
               <time class="text-xs text-muted-foreground">{{ dateTimeFormat(message.created_at) }}</time>
             </p>
             <p class="mt-1.5 text-sm leading-relaxed break-words whitespace-pre-wrap">{{ message.content }}</p>
           </div>
         </div>
       </div>
-      <p v-else class="py-10 text-center text-sm text-muted-foreground">还没有留言</p>
+      <p v-else class="py-10 text-center text-sm text-muted-foreground">{{ t('guestbook.empty') }}</p>
 
       <div v-if="hasMore" class="text-center">
         <Button variant="outline" :disabled="loadingMore" @click="loadMore">
-          {{ loadingMore ? '加载中…' : '加载更多' }}
+          {{ loadingMore ? t('common.loading') : t('common.loadMore') }}
         </Button>
       </div>
     </div>
@@ -53,6 +53,8 @@
 
 <script setup lang="ts">
 import type { Message, Pagination } from '#shared/types'
+
+const { t } = useI18n()
 
 const PAGE_SIZE = 20
 
@@ -113,5 +115,5 @@ const submit = async () => {
   }
 }
 
-useSeoMeta({ title: '留言板' })
+useSeoMeta({ title: () => t('guestbook.title') })
 </script>

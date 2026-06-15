@@ -4,13 +4,13 @@
       <!-- 窄屏抽屉导航 -->
       <Sheet v-model:open="drawerOpen">
         <SheetTrigger as-child>
-          <Button variant="ghost" size="icon" aria-label="菜单" class="mr-1 md:hidden">
+          <Button variant="ghost" size="icon" :aria-label="t('header.menu')" class="mr-1 md:hidden">
             <Menu class="size-5" />
           </Button>
         </SheetTrigger>
         <SheetContent side="left" class="w-72 gap-0">
           <SheetHeader>
-            <SheetTitle class="text-left">{{ APP_META.title }}</SheetTitle>
+            <SheetTitle class="text-left">{{ t('site.title') }}</SheetTitle>
           </SheetHeader>
           <nav class="flex flex-col gap-1 px-4">
             <NuxtLink
@@ -21,12 +21,12 @@
               :class="isActive(item.path) ? 'font-medium text-primary' : 'text-foreground'"
               @click="drawerOpen = false"
             >
-              {{ item.label }}
+              {{ t(item.key) }}
             </NuxtLink>
           </nav>
           <template v-if="categories.length">
             <Separator class="my-4" />
-            <p class="px-7 pb-2 text-xs font-medium tracking-wider text-muted-foreground">分类</p>
+            <p class="px-7 pb-2 text-xs font-medium tracking-wider text-muted-foreground">{{ t('common.category') }}</p>
             <nav class="flex flex-col gap-1 px-4">
               <NuxtLink
                 v-for="category in categories"
@@ -46,7 +46,7 @@
         to="/"
         class="font-display text-lg font-bold tracking-tight transition-colors duration-200 hover:text-primary"
       >
-        {{ APP_META.title }}
+        {{ t('site.title') }}
       </NuxtLink>
 
       <nav class="ml-8 hidden items-center gap-1 md:flex">
@@ -57,12 +57,12 @@
           class="rounded-md px-3 py-1.5 text-sm transition-colors hover:bg-accent hover:text-foreground"
           :class="isActive(item.path) ? 'font-medium text-primary' : 'text-muted-foreground'"
         >
-          {{ item.label }}
+          {{ t(item.key) }}
         </NuxtLink>
       </nav>
 
       <div class="ml-auto flex items-center gap-1">
-        <Button variant="ghost" size="icon" aria-label="搜索" @click="searchOpen = true">
+        <Button variant="ghost" size="icon" :aria-label="t('header.search')" @click="searchOpen = true">
           <Search class="size-5" />
         </Button>
         <Button as-child variant="ghost" size="icon" aria-label="GitHub">
@@ -70,18 +70,19 @@
             <Github class="size-5" />
           </a>
         </Button>
+        <LanguageSwitcher />
         <ClientOnly>
           <Button
             variant="ghost"
             size="icon"
-            :aria-label="isDark ? '切换到亮色' : '切换到暗色'"
+            :aria-label="isDark ? t('header.toLight') : t('header.toDark')"
             @click="toggleTheme"
           >
             <Sun v-if="isDark" class="size-5" />
             <Moon v-else class="size-5" />
           </Button>
           <template #fallback>
-            <Button variant="ghost" size="icon" aria-label="切换主题">
+            <Button variant="ghost" size="icon" :aria-label="t('header.toggleTheme')">
               <Sun class="size-5 opacity-0" />
             </Button>
           </template>
@@ -97,11 +98,13 @@
 import { Menu, Search, Sun, Moon, Github } from 'lucide-vue-next'
 import { APP_META } from '#shared/meta'
 
+const { t } = useI18n()
+
 const navItems = [
-  { path: '/', label: '首页' },
-  { path: '/archive', label: '归档' },
-  { path: '/guestbook', label: '留言' },
-  { path: '/about', label: '关于' }
+  { path: '/', key: 'nav.home' },
+  { path: '/archive', key: 'nav.archive' },
+  { path: '/guestbook', key: 'nav.guestbook' },
+  { path: '/about', key: 'nav.about' }
 ]
 
 const route = useRoute()

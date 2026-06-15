@@ -1,0 +1,135 @@
+{
+  "site": {
+    "title": "夏季指南",
+    "description": "前端开发工程师 Gavin 的个人博客：JavaScript / Vue / React / Node.js"
+  },
+  "nav": {
+    "home": "首页",
+    "archive": "归档",
+    "guestbook": "留言",
+    "about": "关于"
+  },
+  "header": {
+    "menu": "菜单",
+    "search": "搜索",
+    "github": "GitHub",
+    "toLight": "切换到亮色",
+    "toDark": "切换到暗色",
+    "toggleTheme": "切换主题",
+    "language": "语言"
+  },
+  "common": {
+    "loadMore": "加载更多",
+    "loading": "加载中…",
+    "noMore": "没有更多了",
+    "backHome": "返回首页",
+    "category": "分类"
+  },
+  "sidebar": {
+    "categories": "分类",
+    "popularTags": "热门标签",
+    "latestArticles": "最新文章"
+  },
+  "list": {
+    "empty": "暂无文章"
+  },
+  "hero": {
+    "featured": "精选"
+  },
+  "article": {
+    "views": "{count} 阅读",
+    "readingTime": "约 {minutes} 分钟",
+    "like": "点赞",
+    "liked": "已赞",
+    "related": "相关文章",
+    "toc": "目录",
+    "notFound": "文章不存在"
+  },
+  "archive": {
+    "title": "归档",
+    "total": "共 {count} 篇文章",
+    "categories": "分类",
+    "tags": "标签",
+    "empty": "暂无文章",
+    "notFound": "分类不存在"
+  },
+  "tag": {
+    "title": "标签：{name}",
+    "fallback": "标签",
+    "notFound": "标签不存在"
+  },
+  "category": {
+    "fallback": "分类",
+    "notFound": "分类不存在"
+  },
+  "about": {
+    "title": "关于",
+    "friends": "友情链接"
+  },
+  "guestbook": {
+    "title": "留言板",
+    "subtitle": "说点什么吧，匿名也可以",
+    "nickname": "昵称",
+    "optional": "可选",
+    "nicknamePlaceholder": "如何称呼你",
+    "content": "留言内容",
+    "contentPlaceholder": "说点什么…",
+    "submit": "留言",
+    "submitting": "提交中…",
+    "anonymous": "匿名",
+    "empty": "还没有留言"
+  },
+  "comment": {
+    "title": "评论",
+    "count": "评论 ({count})",
+    "nickname": "昵称",
+    "email": "邮箱",
+    "website": "网站",
+    "optional": "可选",
+    "nicknamePlaceholder": "如何称呼你",
+    "emailPlaceholder": "name{'@'}example.com",
+    "content": "评论内容",
+    "contentPlaceholder": "说点什么…",
+    "replyTo": "回复 {'@'}{nickname}",
+    "cancel": "取消",
+    "submit": "发表评论",
+    "submitting": "提交中…",
+    "reply": "回复",
+    "empty": "还没有评论，来抢沙发"
+  },
+  "search": {
+    "title": "搜索：{keyword}",
+    "dialogTitle": "搜索文章",
+    "dialogDesc": "输入关键词，回车搜索",
+    "placeholder": "关键词…",
+    "missingKeyword": "缺少搜索关键词"
+  },
+  "ai": {
+    "open": "打开 AI 助手",
+    "title": "AI 助手",
+    "subtitle": "问我关于 {site} 的任何问题",
+    "close": "关闭",
+    "welcome": "你好，我是这个博客的 AI 助手，可以帮你检索文章、了解作者与站点信息。",
+    "prompt1": "这个博客主要写些什么？",
+    "prompt2": "介绍一下博主",
+    "prompt3": "有哪些关于前端性能优化的文章？",
+    "calling": "正在调用「{tool}」…",
+    "thinking": "思考中…",
+    "inputPlaceholder": "输入消息，回车发送…",
+    "stop": "停止生成",
+    "send": "发送",
+    "emptyContent": "（无内容）",
+    "tool": {
+      "askKnowledgeBase": "知识库检索",
+      "getArticleDetail": "读取文章",
+      "getSiteInformation": "站点信息",
+      "getOpenSourceProjects": "开源项目"
+    }
+  },
+  "backTop": "回到顶部",
+  "error": {
+    "notFound": "页面不存在或已被移除",
+    "serverError": "服务出了点小问题",
+    "pageNotFound": "页面不存在"
+  }
+}

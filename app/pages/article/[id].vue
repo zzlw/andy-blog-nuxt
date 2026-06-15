@@ -18,8 +18,8 @@
           >
             <Folder class="size-4" />{{ article.category.name }}
           </NuxtLink>
-          <span class="inline-flex items-center gap-1"><Eye class="size-4" />{{ article.views }} 阅读</span>
-          <span class="inline-flex items-center gap-1"><Clock class="size-4" />约 {{ readingMinutes }} 分钟</span>
+          <span class="inline-flex items-center gap-1"><Eye class="size-4" />{{ t('article.views', { count: article.views }) }}</span>
+          <span class="inline-flex items-center gap-1"><Clock class="size-4" />{{ t('article.readingTime', { minutes: readingMinutes }) }}</span>
         </p>
       </header>
 
@@ -36,14 +36,14 @@
       <div class="mt-10 text-center">
         <Button :variant="liked ? 'default' : 'outline'" size="lg" :disabled="liked" @click="likeArticle">
           <Heart class="size-4" :class="{ 'fill-current': liked }" />
-          {{ liked ? '已赞' : '点赞' }} {{ likeCount }}
+          {{ liked ? t('article.liked') : t('article.like') }} {{ likeCount }}
         </Button>
       </div>
 
       <template v-if="article.related?.length">
         <Separator class="my-10" />
         <section>
-          <h3 class="mb-6 font-display text-xl font-bold tracking-tight">相关文章</h3>
+          <h3 class="mb-6 font-display text-xl font-bold tracking-tight">{{ t('article.related') }}</h3>
           <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <NuxtLink
               v-for="item in article.related"
@@ -79,10 +79,12 @@
 <script setup lang="ts">
 import { Calendar, Folder, Eye, Clock, Heart } from 'lucide-vue-next'
 
+const { t } = useI18n()
+
 const route = useRoute()
 const articleId = Number(route.params.id)
 if (!Number.isInteger(articleId) || articleId <= 0) {
-  throw createError({ statusCode: 404, message: '文章不存在', fatal: true })
+  throw createError({ statusCode: 404, message: t('article.notFound'), fatal: true })
 }
 
 const api = useBlogApi()
@@ -91,7 +93,7 @@ const { staticPath } = useRuntimeConfig().public
 
 const { data: article, error } = await useAsyncData(`article-${articleId}`, () => api.getArticle(articleId))
 if (error.value || !article.value) {
-  throw createError({ statusCode: error.value?.statusCode === 404 ? 404 : 500, message: '文章不存在', fatal: true })
+  throw createError({ statusCode: error.value?.statusCode === 404 ? 404 : 500, message: t('article.notFound'), fatal: true })
 }
 
 const rendered = computed(() => renderMarkdown(article.value?.content, { staticPath }))

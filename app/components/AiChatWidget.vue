@@ -11,7 +11,7 @@
         <button
           v-if="!open"
           type="button"
-          aria-label="打开 AI 助手"
+          :aria-label="t('ai.open')"
           class="ai-fab fixed right-5 bottom-40 z-50 flex size-12 cursor-pointer items-center justify-center rounded-full text-white transition-transform ease-[var(--ease-out-expo)] hover:scale-105 active:scale-95"
           @click="toggle"
         >
@@ -30,7 +30,7 @@
           v-if="open"
           class="fixed right-5 bottom-5 z-50 flex h-[min(620px,calc(100dvh-2.5rem))] w-[min(400px,calc(100vw-2.5rem))] origin-bottom-right flex-col overflow-hidden rounded-2xl border border-border bg-background shadow-2xl"
           role="dialog"
-          aria-label="AI 助手对话"
+          :aria-label="t('ai.title')"
         >
           <!-- 头部 -->
           <header class="flex items-center gap-3 border-b border-border px-4 py-3">
@@ -38,12 +38,12 @@
               <Sparkles class="size-4" />
             </span>
             <div class="min-w-0 flex-1">
-              <p class="font-display text-sm font-semibold tracking-tight">AI 助手</p>
-              <p class="truncate text-xs text-muted-foreground">问我关于 {{ siteTitle }} 的任何问题</p>
+              <p class="font-display text-sm font-semibold tracking-tight">{{ t('ai.title') }}</p>
+              <p class="truncate text-xs text-muted-foreground">{{ t('ai.subtitle', { site: siteTitle }) }}</p>
             </div>
             <button
               type="button"
-              aria-label="关闭"
+              :aria-label="t('ai.close')"
               class="flex size-8 cursor-pointer items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
               @click="toggle"
             >
@@ -60,7 +60,7 @@
                   <Sparkles class="size-6" />
                 </span>
                 <p class="text-sm text-muted-foreground">
-                  你好，我是这个博客的 AI 助手，可以帮你检索文章、了解作者与站点信息。
+                  {{ t('ai.welcome') }}
                 </p>
               </div>
               <div class="flex flex-col gap-2">
@@ -102,7 +102,7 @@
                   :class="message.content && 'mt-1.5'"
                 >
                   <Loader2 class="size-3.5 animate-spin" />
-                  {{ activeTool ? `正在调用「${toolLabel(activeTool)}」…` : '思考中…' }}
+                  {{ activeTool ? t('ai.calling', { tool: toolLabel(activeTool) }) : t('ai.thinking') }}
                 </p>
               </div>
             </div>
@@ -120,7 +120,7 @@
                 v-model="draft"
                 :maxlength="AI_MESSAGE_MAX_LENGTH"
                 rows="1"
-                placeholder="输入消息，回车发送…"
+                :placeholder="t('ai.inputPlaceholder')"
                 class="max-h-32 min-h-9 resize-none"
                 @keydown="onKeydown"
               />
@@ -129,12 +129,12 @@
                 type="button"
                 size="icon"
                 variant="outline"
-                aria-label="停止生成"
+                :aria-label="t('ai.stop')"
                 @click="stop"
               >
                 <Square class="size-4" />
               </Button>
-              <Button v-else type="submit" size="icon" aria-label="发送" :disabled="!draft.trim()">
+              <Button v-else type="submit" size="icon" :aria-label="t('ai.send')" :disabled="!draft.trim()">
                 <ArrowUp class="size-4" />
               </Button>
             </div>
@@ -147,7 +147,8 @@
 
 <script setup lang="ts">
 import { ArrowUp, Loader2, Sparkles, Square, X } from 'lucide-vue-next'
-import { APP_META } from '#shared/meta'
+
+const { t } = useI18n()
 
 const { enabled, messages, status, error, activeTool, loadHistory, send, stop } = useAiChat()
 const { staticPath } = useRuntimeConfig().public
@@ -156,17 +157,15 @@ const open = ref(false)
 const draft = ref('')
 const scrollRef = ref<HTMLElement>()
 
-const siteTitle = APP_META.title
+const siteTitle = computed(() => t('site.title'))
 
-const suggestedPrompts = ['这个博客主要写些什么？', '介绍一下博主', '有哪些关于前端性能优化的文章？']
+const suggestedPrompts = computed(() => [t('ai.prompt1'), t('ai.prompt2'), t('ai.prompt3')])
 
-const toolLabels: Record<string, string> = {
-  askKnowledgeBase: '知识库检索',
-  getArticleDetail: '读取文章',
-  getSiteInformation: '站点信息',
-  getOpenSourceProjects: '开源项目'
+const toolLabel = (name: string) => {
+  const key = `ai.tool.${name}`
+  const label = t(key)
+  return label === key ? name : label
 }
-const toolLabel = (name: string) => toolLabels[name] ?? name
 
 // AI 回复内容为可信度未知的模型输出，复用站点 markdown 渲染（与文章页一致）
 const renderReply = (content: string) => renderMarkdown(content, { staticPath }).html

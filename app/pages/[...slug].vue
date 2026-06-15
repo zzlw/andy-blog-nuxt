@@ -1,5 +1,6 @@
 <script setup lang="ts">
-throw createError({ statusCode: 404, message: '页面不存在', fatal: true })
+const { t } = useI18n()
+throw createError({ statusCode: 404, message: t('error.pageNotFound'), fatal: true })
 </script>
 
 <template>

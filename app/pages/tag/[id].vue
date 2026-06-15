@@ -10,14 +10,16 @@
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n()
+
 const route = useRoute()
 const tagId = Number(route.params.id)
 if (!Number.isInteger(tagId) || tagId <= 0) {
-  throw createError({ statusCode: 404, message: '标签不存在', fatal: true })
+  throw createError({ statusCode: 404, message: t('tag.notFound'), fatal: true })
 }
 
 const { data: tags } = await useTagsData()
 const tag = computed(() => tags.value.find((item) => item.id === tagId))
 
-useSeoMeta({ title: () => (tag.value ? `标签：${tag.value.name}` : '标签') })
+useSeoMeta({ title: () => (tag.value ? t('tag.title', { name: tag.value.name }) : t('tag.fallback')) })
 </script>

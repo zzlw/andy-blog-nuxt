@@ -1,40 +1,40 @@
 <template>
   <section>
     <h3 class="mb-6 font-display text-xl font-bold tracking-tight">
-      评论 <span class="text-sm font-normal text-muted-foreground">({{ comments.length }})</span>
+      {{ t('comment.title') }} <span class="text-sm font-normal text-muted-foreground">({{ comments.length }})</span>
     </h3>
 
     <!-- 发表评论 -->
     <form class="flex flex-col gap-3" @submit.prevent="submit">
       <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
         <div class="flex flex-col gap-2">
-          <label for="comment-nickname" class="text-sm font-medium">昵称</label>
-          <Input id="comment-nickname" v-model="form.nickname" placeholder="如何称呼你" required />
+          <label for="comment-nickname" class="text-sm font-medium">{{ t('comment.nickname') }}</label>
+          <Input id="comment-nickname" v-model="form.nickname" :placeholder="t('comment.nicknamePlaceholder')" required />
         </div>
         <div class="flex flex-col gap-2">
           <label for="comment-email" class="text-sm font-medium">
-            邮箱<span class="ml-1 text-xs font-normal text-muted-foreground">可选</span>
+            {{ t('comment.email') }}<span class="ml-1 text-xs font-normal text-muted-foreground">{{ t('comment.optional') }}</span>
           </label>
-          <Input id="comment-email" v-model="form.email" type="email" placeholder="name@example.com" />
+          <Input id="comment-email" v-model="form.email" type="email" :placeholder="t('comment.emailPlaceholder')" />
         </div>
         <div class="flex flex-col gap-2">
           <label for="comment-website" class="text-sm font-medium">
-            网站<span class="ml-1 text-xs font-normal text-muted-foreground">可选</span>
+            {{ t('comment.website') }}<span class="ml-1 text-xs font-normal text-muted-foreground">{{ t('comment.optional') }}</span>
           </label>
           <Input id="comment-website" v-model="form.website" type="url" placeholder="https://" />
         </div>
       </div>
       <div v-if="replyTo" class="flex items-center gap-2 text-sm text-muted-foreground">
-        <span>回复 @{{ replyTo.nickname }}</span>
-        <button type="button" class="cursor-pointer text-primary hover:underline" @click="replyTo = null">取消</button>
+        <span>{{ t('comment.replyTo', { nickname: replyTo.nickname }) }}</span>
+        <button type="button" class="cursor-pointer text-primary hover:underline" @click="replyTo = null">{{ t('comment.cancel') }}</button>
       </div>
       <div class="flex flex-col gap-2">
-        <label for="comment-content" class="text-sm font-medium">评论内容</label>
-        <Textarea id="comment-content" v-model="form.content" placeholder="说点什么…" rows="4" required />
+        <label for="comment-content" class="text-sm font-medium">{{ t('comment.content') }}</label>
+        <Textarea id="comment-content" v-model="form.content" :placeholder="t('comment.contentPlaceholder')" rows="4" required />
       </div>
       <div class="text-right">
         <Button type="submit" :disabled="submitting || !form.nickname.trim() || !form.content.trim()">
-          {{ submitting ? '提交中…' : '发表评论' }}
+          {{ submitting ? t('comment.submitting') : t('comment.submit') }}
         </Button>
       </div>
     </form>
@@ -57,12 +57,14 @@
         </div>
       </div>
     </div>
-    <p v-else class="mt-8 text-center text-sm text-muted-foreground">还没有评论，来抢沙发</p>
+    <p v-else class="mt-8 text-center text-sm text-muted-foreground">{{ t('comment.empty') }}</p>
   </section>
 </template>
 
 <script setup lang="ts">
 import type { Comment } from '#shared/types'
+
+const { t } = useI18n()
 
 const props = defineProps<{ articleId: number }>()
 

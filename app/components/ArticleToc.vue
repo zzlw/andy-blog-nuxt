@@ -1,7 +1,7 @@
 <template>
   <div v-if="toc.length" class="flex flex-col gap-8">
     <section>
-      <h3 class="mb-4 font-display text-sm font-bold tracking-tight">目录</h3>
+      <h3 class="mb-4 font-display text-sm font-bold tracking-tight">{{ t('article.toc') }}</h3>
       <nav class="flex max-h-[60vh] flex-col gap-0.5 overflow-y-auto text-sm">
         <a
           v-for="item in toc"
@@ -24,6 +24,8 @@
 
 <script setup lang="ts">
 import type { TocItem } from '~/utils/markdown'
+
+const { t } = useI18n()
 
 const props = defineProps<{ toc: TocItem[] }>()
 

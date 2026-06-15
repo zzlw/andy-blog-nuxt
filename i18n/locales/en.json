@@ -1,0 +1,135 @@
+{
+  "site": {
+    "title": "Summer Guide",
+    "description": "Personal blog of frontend engineer Gavin: JavaScript / Vue / React / Node.js"
+  },
+  "nav": {
+    "home": "Home",
+    "archive": "Archive",
+    "guestbook": "Guestbook",
+    "about": "About"
+  },
+  "header": {
+    "menu": "Menu",
+    "search": "Search",
+    "github": "GitHub",
+    "toLight": "Switch to light",
+    "toDark": "Switch to dark",
+    "toggleTheme": "Toggle theme",
+    "language": "Language"
+  },
+  "common": {
+    "loadMore": "Load more",
+    "loading": "Loading…",
+    "noMore": "No more",
+    "backHome": "Back to home",
+    "category": "Category"
+  },
+  "sidebar": {
+    "categories": "Categories",
+    "popularTags": "Popular tags",
+    "latestArticles": "Latest articles"
+  },
+  "list": {
+    "empty": "No articles yet"
+  },
+  "hero": {
+    "featured": "Featured"
+  },
+  "article": {
+    "views": "{count} views",
+    "readingTime": "~{minutes} min read",
+    "like": "Like",
+    "liked": "Liked",
+    "related": "Related articles",
+    "toc": "Contents",
+    "notFound": "Article not found"
+  },
+  "archive": {
+    "title": "Archive",
+    "total": "{count} articles in total",
+    "categories": "Categories",
+    "tags": "Tags",
+    "empty": "No articles yet",
+    "notFound": "Category not found"
+  },
+  "tag": {
+    "title": "Tag: {name}",
+    "fallback": "Tag",
+    "notFound": "Tag not found"
+  },
+  "category": {
+    "fallback": "Category",
+    "notFound": "Category not found"
+  },
+  "about": {
+    "title": "About",
+    "friends": "Friends"
+  },
+  "guestbook": {
+    "title": "Guestbook",
+    "subtitle": "Say something, anonymous is fine",
+    "nickname": "Nickname",
+    "optional": "optional",
+    "nicknamePlaceholder": "What should we call you",
+    "content": "Message",
+    "contentPlaceholder": "Say something…",
+    "submit": "Post",
+    "submitting": "Submitting…",
+    "anonymous": "Anonymous",
+    "empty": "No messages yet"
+  },
+  "comment": {
+    "title": "Comments",
+    "count": "Comments ({count})",
+    "nickname": "Nickname",
+    "email": "Email",
+    "website": "Website",
+    "optional": "optional",
+    "nicknamePlaceholder": "What should we call you",
+    "emailPlaceholder": "name{'@'}example.com",
+    "content": "Comment",
+    "contentPlaceholder": "Say something…",
+    "replyTo": "Reply to {'@'}{nickname}",
+    "cancel": "Cancel",
+    "submit": "Post comment",
+    "submitting": "Submitting…",
+    "reply": "Reply",
+    "empty": "No comments yet, be the first!"
+  },
+  "search": {
+    "title": "Search: {keyword}",
+    "dialogTitle": "Search articles",
+    "dialogDesc": "Type a keyword and press Enter",
+    "placeholder": "Keyword…",
+    "missingKeyword": "Missing search keyword"
+  },
+  "ai": {
+    "open": "Open AI assistant",
+    "title": "AI Assistant",
+    "subtitle": "Ask me anything about {site}",
+    "close": "Close",
+    "welcome": "Hi, I'm this blog's AI assistant. I can help you find articles and learn about the author and the site.",
+    "prompt1": "What does this blog mainly write about?",
+    "prompt2": "Tell me about the author",
+    "prompt3": "Any articles on frontend performance optimization?",
+    "calling": "Calling \"{tool}\"…",
+    "thinking": "Thinking…",
+    "inputPlaceholder": "Type a message, press Enter to send…",
+    "stop": "Stop",
+    "send": "Send",
+    "emptyContent": "(no content)",
+    "tool": {
+      "askKnowledgeBase": "Knowledge base search",
+      "getArticleDetail": "Read article",
+      "getSiteInformation": "Site info",
+      "getOpenSourceProjects": "Open source projects"
+    }
+  },
+  "backTop": "Back to top",
+  "error": {
+    "notFound": "The page does not exist or has been removed",
+    "serverError": "Something went wrong",
+    "pageNotFound": "Page not found"
+  }
+}

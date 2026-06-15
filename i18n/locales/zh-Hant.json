@@ -1,0 +1,135 @@
+{
+  "site": {
+    "title": "夏季指南",
+    "description": "前端開發工程師 Gavin 的個人部落格：JavaScript / Vue / React / Node.js"
+  },
+  "nav": {
+    "home": "首頁",
+    "archive": "歸檔",
+    "guestbook": "留言",
+    "about": "關於"
+  },
+  "header": {
+    "menu": "選單",
+    "search": "搜尋",
+    "github": "GitHub",
+    "toLight": "切換到亮色",
+    "toDark": "切換到暗色",
+    "toggleTheme": "切換主題",
+    "language": "語言"
+  },
+  "common": {
+    "loadMore": "載入更多",
+    "loading": "載入中…",
+    "noMore": "沒有更多了",
+    "backHome": "返回首頁",
+    "category": "分類"
+  },
+  "sidebar": {
+    "categories": "分類",
+    "popularTags": "熱門標籤",
+    "latestArticles": "最新文章"
+  },
+  "list": {
+    "empty": "暫無文章"
+  },
+  "hero": {
+    "featured": "精選"
+  },
+  "article": {
+    "views": "{count} 閱讀",
+    "readingTime": "約 {minutes} 分鐘",
+    "like": "讚",
+    "liked": "已讚",
+    "related": "相關文章",
+    "toc": "目錄",
+    "notFound": "文章不存在"
+  },
+  "archive": {
+    "title": "歸檔",
+    "total": "共 {count} 篇文章",
+    "categories": "分類",
+    "tags": "標籤",
+    "empty": "暫無文章",
+    "notFound": "分類不存在"
+  },
+  "tag": {
+    "title": "標籤：{name}",
+    "fallback": "標籤",
+    "notFound": "標籤不存在"
+  },
+  "category": {
+    "fallback": "分類",
+    "notFound": "分類不存在"
+  },
+  "about": {
+    "title": "關於",
+    "friends": "友情連結"
+  },
+  "guestbook": {
+    "title": "留言板",
+    "subtitle": "說點什麼吧，匿名也可以",
+    "nickname": "暱稱",
+    "optional": "選填",
+    "nicknamePlaceholder": "如何稱呼你",
+    "content": "留言內容",
+    "contentPlaceholder": "說點什麼…",
+    "submit": "留言",
+    "submitting": "提交中…",
+    "anonymous": "匿名",
+    "empty": "還沒有留言"
+  },
+  "comment": {
+    "title": "評論",
+    "count": "評論 ({count})",
+    "nickname": "暱稱",
+    "email": "信箱",
+    "website": "網站",
+    "optional": "選填",
+    "nicknamePlaceholder": "如何稱呼你",
+    "emailPlaceholder": "name{'@'}example.com",
+    "content": "評論內容",
+    "contentPlaceholder": "說點什麼…",
+    "replyTo": "回覆 {'@'}{nickname}",
+    "cancel": "取消",
+    "submit": "發表評論",
+    "submitting": "提交中…",
+    "reply": "回覆",
+    "empty": "還沒有評論，來搶沙發"
+  },
+  "search": {
+    "title": "搜尋：{keyword}",
+    "dialogTitle": "搜尋文章",
+    "dialogDesc": "輸入關鍵字，按 Enter 搜尋",
+    "placeholder": "關鍵字…",
+    "missingKeyword": "缺少搜尋關鍵字"
+  },
+  "ai": {
+    "open": "開啟 AI 助理",
+    "title": "AI 助理",
+    "subtitle": "問我關於 {site} 的任何問題",
+    "close": "關閉",
+    "welcome": "你好，我是這個部落格的 AI 助理，可以幫你檢索文章、了解作者與站點資訊。",
+    "prompt1": "這個部落格主要寫些什麼？",
+    "prompt2": "介紹一下部落客",
+    "prompt3": "有哪些關於前端效能最佳化的文章？",
+    "calling": "正在呼叫「{tool}」…",
+    "thinking": "思考中…",
+    "inputPlaceholder": "輸入訊息，按 Enter 傳送…",
+    "stop": "停止生成",
+    "send": "傳送",
+    "emptyContent": "（無內容）",
+    "tool": {
+      "askKnowledgeBase": "知識庫檢索",
+      "getArticleDetail": "讀取文章",
+      "getSiteInformation": "站點資訊",
+      "getOpenSourceProjects": "開源專案"
+    }
+  },
+  "backTop": "回到頂部",
+  "error": {
+    "notFound": "頁面不存在或已被移除",
+    "serverError": "服務出了點小問題",
+    "pageNotFound": "頁面不存在"
+  }
+}

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="!articles.length && !loading" class="py-16 text-center text-muted-foreground">
-      暂无文章
+      {{ t('list.empty') }}
     </div>
 
     <div class="divide-y divide-border">
@@ -10,7 +10,7 @@
 
     <div v-if="hasMore" class="mt-6 text-center">
       <Button variant="outline" :disabled="loading" @click="loadMore">
-        {{ loading ? '加载中…' : '加载更多' }}
+        {{ loading ? t('common.loading') : t('common.loadMore') }}
       </Button>
     </div>
   </div>
@@ -18,6 +18,8 @@
 
 <script setup lang="ts">
 import type { Article, ArticleListParams, Pagination } from '#shared/types'
+
+const { t } = useI18n()
 
 const props = withDefaults(
   defineProps<{

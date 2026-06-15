@@ -15,7 +15,7 @@
       aria-hidden="true"
     ></div>
     <div class="absolute inset-x-0 bottom-0 p-6 sm:p-8 lg:p-10">
-      <p class="font-mono text-xs tracking-[0.18em] text-white/80 uppercase">精选</p>
+      <p class="font-mono text-xs tracking-[0.18em] text-white/80 uppercase">{{ t('hero.featured') }}</p>
       <h2
         class="mt-3 line-clamp-2 max-w-[24ch] font-display text-2xl leading-[1.15] font-bold tracking-tight text-white sm:text-3xl lg:text-4xl"
       >
@@ -36,7 +36,7 @@
 
   <!-- 无封面：纯文字排版 -->
   <NuxtLink v-else :to="`/article/${article.id}`" class="group block">
-    <p class="font-mono text-xs tracking-[0.18em] text-primary uppercase">精选</p>
+    <p class="font-mono text-xs tracking-[0.18em] text-primary uppercase">{{ t('hero.featured') }}</p>
     <h2
       class="mt-4 line-clamp-3 font-display text-3xl leading-[1.15] font-bold tracking-tight transition-colors duration-200 group-hover:text-primary sm:text-4xl"
     >
@@ -58,6 +58,8 @@
 <script setup lang="ts">
 import { Folder, Eye } from 'lucide-vue-next'
 import type { Article } from '#shared/types'
+
+const { t } = useI18n()
 
 defineProps<{ article: Article }>()
 

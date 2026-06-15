@@ -35,7 +35,7 @@
           class="inline-flex cursor-pointer items-center gap-1 transition-colors hover:text-primary"
           @click="emit('reply', comment)"
         >
-          <MessageSquare class="size-3.5" />回复
+          <MessageSquare class="size-3.5" />{{ t('comment.reply') }}
         </button>
       </p>
     </div>
@@ -45,6 +45,8 @@
 <script setup lang="ts">
 import { Heart, MessageSquare } from 'lucide-vue-next'
 import type { Comment } from '#shared/types'
+
+const { t } = useI18n()
 
 const props = defineProps<{ comment: Comment }>()
 const emit = defineEmits<{ reply: [comment: Comment]; like: [comment: Comment] }>()

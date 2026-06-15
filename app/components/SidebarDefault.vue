@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col gap-8">
     <section v-if="categories.length">
-      <h3 class="mb-4 font-display text-sm font-bold tracking-tight">分类</h3>
+      <h3 class="mb-4 font-display text-sm font-bold tracking-tight">{{ t('sidebar.categories') }}</h3>
       <nav class="flex flex-col">
         <NuxtLink
           v-for="category in categories"
@@ -16,7 +16,7 @@
     </section>
 
     <section v-if="popularTags.length">
-      <h3 class="mb-4 font-display text-sm font-bold tracking-tight">热门标签</h3>
+      <h3 class="mb-4 font-display text-sm font-bold tracking-tight">{{ t('sidebar.popularTags') }}</h3>
       <div class="flex flex-wrap gap-2">
         <NuxtLink v-for="tag in popularTags" :key="tag.id" :to="`/tag/${tag.id}`">
           <Badge variant="secondary" class="font-normal transition-colors hover:bg-primary hover:text-primary-foreground">
@@ -27,7 +27,7 @@
     </section>
 
     <section v-if="latest.length">
-      <h3 class="mb-4 font-display text-sm font-bold tracking-tight">最新文章</h3>
+      <h3 class="mb-4 font-display text-sm font-bold tracking-tight">{{ t('sidebar.latestArticles') }}</h3>
       <nav class="flex flex-col gap-3">
         <NuxtLink
           v-for="article in latest"
@@ -47,6 +47,8 @@
 
 <script setup lang="ts">
 import { Folder } from 'lucide-vue-next'
+
+const { t } = useI18n()
 
 const { data: categories } = useCategoriesData()
 const { data: tags } = useTagsData()

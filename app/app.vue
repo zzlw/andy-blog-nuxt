@@ -5,12 +5,21 @@
 </template>
 
 <script setup lang="ts">
-import { APP_META, pageTitle } from '#shared/meta'
+import { APP_META } from '#shared/meta'
+
+const { t, locale, locales } = useI18n()
+
+// 随当前语言切换 <html lang>，利于无障碍与 SEO
+const htmlLang = computed(
+  () => locales.value.find((item) => item.code === locale.value)?.language ?? 'zh-CN'
+)
 
 useHead({
-  titleTemplate: (title) => (title ? `${title} | ${APP_META.titleSuffix}` : pageTitle()),
+  htmlAttrs: { lang: htmlLang },
+  titleTemplate: (title) =>
+    title ? `${title} | ${APP_META.titleSuffix}` : `${t('site.title')} | ${APP_META.titleSuffix}`,
   meta: [
-    { name: 'description', content: APP_META.description },
+    { name: 'description', content: () => t('site.description') },
     { name: 'keywords', content: APP_META.keywords }
   ]
 })
