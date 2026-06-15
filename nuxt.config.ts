@@ -52,7 +52,10 @@ export default defineNuxtConfig({
       staticPath: '',
       // AI 对话助手服务地址（surmon.me.ai / Cloudflare Workers，NUXT_PUBLIC_AI_API_BASE）
       // 留空则不渲染 AI 助手浮窗，便于后端未就绪时安全降级
-      aiApiBase: ''
+      aiApiBase: '',
+      // Google Analytics 4 Measurement ID（形如 G-XXXXXXXXXX，NUXT_PUBLIC_GA_MEASUREMENT_ID）
+      // 留空则不加载统计脚本（开发环境亦不加载）
+      gaMeasurementId: ''
     }
   },
 
