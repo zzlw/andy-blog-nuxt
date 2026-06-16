@@ -52,11 +52,7 @@ export default defineNuxtConfig({
       staticPath: '',
       // AI 对话助手服务地址（surmon.me.ai / Cloudflare Workers，NUXT_PUBLIC_AI_API_BASE）
       // 留空则不渲染 AI 助手浮窗，便于后端未就绪时安全降级
-      aiApiBase: '',
-      // 自托管 Umami 统计脚本地址（如 https://umami.example.com/script.js，NUXT_PUBLIC_UMAMI_SCRIPT_URL）
-      umamiScriptUrl: '',
-      // Umami 网站 ID（NUXT_PUBLIC_UMAMI_WEBSITE_ID）；与 scriptUrl 均配置时才加载埋点
-      umamiWebsiteId: ''
+      aiApiBase: ''
     }
   },
 
