@@ -57,12 +57,17 @@ export default defineNuxtConfig({
   },
 
   // SWR 页面缓存：替代自研 Redis/LRU SSR 缓存
+  // 注意：列表页（/ 与 /archive）不叠加页面级 SWR。
+  // 原因：SWR 会把 HTML 文档与 _payload.json 拆成两个独立缓存条目，各自独立到期/再验证，
+  // 发布后短时间内二者可能不同步（HTML 新、payload 旧），客户端水合时用旧 payload 覆盖，
+  // 表现为「新列表闪一下又回到旧列表」。这两个页面改为 SSR 直出，依赖后端按发布事件失效的
+  // Redis 缓存即可保证实时且高效。内容稳定的详情/分类/标签/关于页保留 SWR。
   routeRules: {
-    '/': { swr: 60 },
+    '/': {},
+    '/archive': {},
     '/article/**': { swr: 60 },
     '/category/**': { swr: 300 },
     '/tag/**': { swr: 300 },
-    '/archive': { swr: 300 },
     '/about': { swr: 300 }
   },
 
