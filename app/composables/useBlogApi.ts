@@ -15,6 +15,7 @@ import type {
   Friend,
   Message,
   PaginateResult,
+  Song,
   Tag
 } from '#shared/types'
 
@@ -63,6 +64,7 @@ export const useBlogApi = () => {
     getArchive: () => request<ArchiveYear[]>('/articles/archive'),
     getCategories: () => request<Category[]>('/categories'),
     getTags: () => request<Tag[]>('/tags'),
+    getSongs: () => request<Song[]>('/music'),
     getAuthors: () => request<Author[]>('/authors'),
     getFriends: () => request<Friend[]>('/friends'),
     getComments: (articleId: number) => request<Comment[]>('/comments', { query: { article_id: articleId } }),

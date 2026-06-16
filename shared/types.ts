@@ -91,6 +91,16 @@ export interface Friend {
   avatar: string
 }
 
+export interface Song {
+  id: number
+  name: string
+  artist: string
+  /** 音频相对路径，展示时拼接 STATIC_PATH */
+  url: string
+  cover: string
+  sort: number
+}
+
 export interface ArchiveYear {
   year: number
   articles: ArticleBrief[]

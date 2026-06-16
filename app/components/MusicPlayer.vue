@@ -5,20 +5,26 @@
 </template>
 
 <script setup lang="ts">
-import songs from '~/configs/music-list'
-
 // APlayer 依赖 window/document，仅客户端初始化
 const containerRef = ref<HTMLElement>()
 let aplayer: any = null
 
 const { staticUrl } = useStaticUrl()
 
+// 歌单改由后台维护：SSR 预取 /api/music，去重共享，失败降级为空歌单。
+// 不在此处 await，避免布局子组件因顶层 await 触发 Suspense 边界问题；
+// Nuxt 会在 SSR 序列化前自动等待 useAsyncData 完成，客户端 onMounted 时已有数据。
+const api = useBlogApi()
+const { data: songs } = useAsyncData('songs', () => api.getSongs(), { default: () => [] })
+
 onMounted(async () => {
+  if (!songs.value.length) return
+
   const { default: APlayer } = await import('aplayer')
   await import('aplayer/dist/APlayer.min.css')
 
   // 音乐资源仅存相对路径，运行时拼接 staticPath
-  const audio = songs.map((song) => ({
+  const audio = songs.value.map((song) => ({
     artist: song.artist,
     name: song.name,
     url: staticUrl(song.url),
