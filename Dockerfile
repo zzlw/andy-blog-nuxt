@@ -12,7 +12,9 @@ ENV NODE_ENV=development
 RUN pnpm install --frozen-lockfile
 COPY . .
 EXPOSE 3000
-CMD ["pnpm", "run", "dev", "--", "--host", "0.0.0.0"]
+# 用 exec 形式直接调用 nuxt，避免 `pnpm run dev -- --host` 把多余的 `--`
+# 透传给 nuxi，导致 `--host` 被当成 rootDir 位置参数（会渲染默认欢迎页）
+CMD ["pnpm", "exec", "nuxt", "dev", "--host", "0.0.0.0"]
 
 # ---------- 构建层：nuxt build 产出自包含的 .output/ ----------
 FROM base AS builder
