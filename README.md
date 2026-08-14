@@ -2,6 +2,10 @@
 
 Gavin 的博客前端：**Nuxt 4 SSR + Tailwind CSS v4 + shadcn-vue**。
 
+<p align="center">
+  <img src="docs/images/jiawen-blog.png" width="720" alt="jiawen.live 博客首页截图">
+</p>
+
 ## 技术栈
 
 - Nuxt 4（Vue 3.5 / Nitro），`useAsyncData` 同构数据获取，无额外状态管理库
