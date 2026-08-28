@@ -7,11 +7,9 @@
     <article v-if="article">
       <img
         v-if="article.cover"
-        :src="thumbnailUrl(article.cover, 800)"
+        :src="thumbnailUrl(article.cover, 1200)"
         :alt="article.title"
-        width="800"
-        height="450"
-        class="mb-8 aspect-[16/9] w-full rounded-xl object-cover"
+        class="mb-8 w-full rounded-xl"
       />
       <header>
         <h1 class="font-display text-3xl leading-[1.15] font-bold tracking-tight sm:text-4xl">{{ article.title }}</h1>
