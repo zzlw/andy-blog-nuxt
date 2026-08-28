@@ -5,6 +5,14 @@
     </template>
 
     <article v-if="article">
+      <img
+        v-if="article.cover"
+        :src="thumbnailUrl(article.cover, 800)"
+        :alt="article.title"
+        width="800"
+        height="450"
+        class="mb-8 aspect-[16/9] w-full rounded-xl object-cover"
+      />
       <header>
         <h1 class="font-display text-3xl leading-[1.15] font-bold tracking-tight sm:text-4xl">{{ article.title }}</h1>
         <p class="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
@@ -119,9 +127,14 @@ useSeoMeta({
   title: article.value.title,
   description: article.value.description,
   ogTitle: article.value.title,
-  ogDescription: article.value.description,
-  ogImage: article.value.cover ? resolveStaticUrl(staticPath, article.value.cover) : APP_META.shareIcon
+  ogDescription: article.value.description
 })
+
+useShareMeta(() => ({
+  title: article.value?.title,
+  description: article.value?.description || APP_META.description,
+  image: shareImageUrl(article.value?.cover)
+}))
 
 useWechatShare(() => ({
   title: article.value?.title ?? '',

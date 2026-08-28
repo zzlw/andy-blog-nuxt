@@ -54,7 +54,9 @@ export default defineNuxtConfig({
       // 留空则不渲染 AI 助手浮窗，便于后端未就绪时安全降级
       aiApiBase: '',
       // 微信分享默认缩略图（绝对 URL）。留空则使用当前站点 /share-icon.jpg
-      wechatShareIcon: ''
+      wechatShareIcon: '',
+      // 仅认证公众号才能开。未认证时加载 JS-SDK 会导致分享缩略图空白。
+      wechatJssdk: false
     }
   },
 

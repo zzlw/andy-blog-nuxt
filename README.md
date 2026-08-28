@@ -63,5 +63,6 @@ npm run start    # node .output/server/index.mjs
 | `NUXT_API_BASE_INTERNAL` | SSR 数据预取内网地址（如 `http://api:3000`） |
 | `NUXT_PUBLIC_STATIC_PATH` | 静态资源域名（支持逗号分隔多个） |
 | `NUXT_PUBLIC_WECHAT_SHARE_ICON` | 微信分享默认缩略图绝对 URL；留空则使用站点根路径 `/share-icon.jpg` |
+| `NUXT_PUBLIC_WECHAT_JSSDK` | 仅认证公众号设为 `true`。未认证时不要开，否则分享卡片会没缩略图 |
 
 运行时配置经 Nuxt `runtimeConfig` 注入，构建产物多环境通用。

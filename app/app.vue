@@ -24,13 +24,11 @@ useHead({
     { property: 'og:type', content: 'website' },
     { property: 'og:site_name', content: APP_META.title },
     { property: 'og:url', content: APP_META.url },
-    { property: 'og:image', content: APP_META.shareIcon },
-    { property: 'og:image:width', content: '400' },
-    { property: 'og:image:height', content: '400' },
-    { name: 'twitter:card', content: 'summary' },
-    { name: 'twitter:image', content: APP_META.shareIcon }
+    { name: 'twitter:card', content: 'summary' }
   ]
 })
+
+useShareMeta({})
 
 // 水合完成后读取 localStorage（点赞记录/访客资料），避免 SSR 不一致
 const identity = useIdentity()

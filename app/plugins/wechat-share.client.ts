@@ -58,7 +58,10 @@ const readMetaDescription = () =>
   document.querySelector('meta[name="description"]')?.getAttribute('content') || APP_META.description
 
 export default defineNuxtPlugin((nuxtApp) => {
-  if (!isWeChat()) return
+  // 未认证服务号没有分享接口权限。此时加载 JS-SDK 会劫持微信原生抓取，
+  // 接口再 permission denied，卡片就会变成空白。认证后再打开此开关。
+  const jssdkEnabled = Boolean(useRuntimeConfig().public.wechatJssdk)
+  if (!jssdkEnabled || !isWeChat()) return
 
   const api = useBlogApi()
   const shareState = useWechatShareState()

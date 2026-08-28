@@ -27,9 +27,14 @@ const { shareImageUrl } = useStaticUrl()
 
 useSeoMeta({
   title: () => category.value?.name ?? t('category.fallback'),
-  description: () => category.value?.description || undefined,
-  ogImage: () => shareImageUrl(category.value?.cover) || APP_META.shareIcon
+  description: () => category.value?.description || undefined
 })
+
+useShareMeta(() => ({
+  title: category.value?.name,
+  description: category.value?.description || APP_META.description,
+  image: shareImageUrl(category.value?.cover)
+}))
 
 useWechatShare(() => ({
   title: category.value?.name || t('category.fallback'),
