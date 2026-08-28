@@ -20,12 +20,17 @@ export const resolveStaticUrl = (staticPath: string, url?: string | null): strin
   return `${host.replace(/\/+$/, '')}/${url.replace(/^\/+/, '')}`
 }
 
+const withOssProcess = (resolved: string, process: string) => {
+  const sep = resolved.includes('?') ? '&' : '?'
+  return `${resolved}${sep}x-oss-process=${encodeURIComponent(process)}`
+}
+
 /** OSS 图片处理：缩略图（阿里云 x-oss-process） */
 export const resolveThumbnailUrl = (staticPath: string, url?: string | null, width = 800): string => {
   const resolved = resolveStaticUrl(staticPath, url)
   if (!resolved || !/aliyuncs\.com|jiawen\.live/.test(resolved)) return resolved
-  const sep = resolved.includes('?') ? '&' : '?'
-  return `${resolved}${sep}x-oss-process=image/resize,w_${width}/interlace,1/quality,q_80`
+  // 微信抓取器会按逗号截断 query；interlace,1 会生成渐进 JPEG，缩略图常被丢掉。
+  return withOssProcess(resolved, `image/format,jpg/interlace,0/resize,w_${width}/quality,q_80`)
 }
 
 /**
@@ -35,8 +40,5 @@ export const resolveThumbnailUrl = (staticPath: string, url?: string | null, wid
 export const resolveShareImageUrl = (staticPath: string, url?: string | null): string => {
   const resolved = resolveStaticUrl(staticPath, url)
   if (!resolved || !/aliyuncs\.com|jiawen\.live/.test(resolved)) return resolved
-  const sep = resolved.includes('?') ? '&' : '?'
-  // 逗号必须编码：微信抓取器会按逗号截断 query，截断后 OSS 返回 400。
-  const process = encodeURIComponent('image/format,jpg/interlace,0/resize,m_fill,w_400,h_400/quality,q_80')
-  return `${resolved}${sep}x-oss-process=${process}`
+  return withOssProcess(resolved, 'image/format,jpg/interlace,0/resize,m_fill,w_400,h_400/quality,q_80')
 }

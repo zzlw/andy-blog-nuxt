@@ -6,7 +6,7 @@
     class="group relative block overflow-hidden rounded-xl bg-muted"
   >
     <img
-      :src="thumbnailUrl(article.cover, 800)"
+      :src="thumbnailUrl(article.cover, 1200)"
       :alt="article.title"
       class="aspect-[16/9] size-full object-cover transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-[1.04] lg:aspect-[21/9]"
     />
