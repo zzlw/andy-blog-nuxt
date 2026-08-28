@@ -12,10 +12,10 @@ export const APP_META = {
   email: 'zzlwte@gmail.com',
   url: 'https://jiawen.live',
   /**
-   * 微信分享默认缩略图（同域 HTTPS，400×400 JPEG）。
-   * `v=` 用于在尺寸变更后让微信重新抓取，避免沿用旧的 300×300 缓存。
+   * 微信分享默认缩略图（同域 HTTPS，400×400 baseline JPEG）。
+   * 路径不能带逗号或复杂 query：微信抓取器会在逗号处截断 URL。
    */
-  shareIcon: 'https://jiawen.live/share-icon.jpg?v=400',
+  shareIcon: 'https://jiawen.live/share-card.jpg',
   /** GitHub 主页 */
   github: 'https://github.com/zzlw',
   /** 工信部 ICP 备案号（要求展示在全站底部并链接到备案管理系统） */

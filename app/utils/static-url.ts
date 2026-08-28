@@ -36,5 +36,7 @@ export const resolveShareImageUrl = (staticPath: string, url?: string | null): s
   const resolved = resolveStaticUrl(staticPath, url)
   if (!resolved || !/aliyuncs\.com|jiawen\.live/.test(resolved)) return resolved
   const sep = resolved.includes('?') ? '&' : '?'
-  return `${resolved}${sep}x-oss-process=image/resize,m_fill,w_400,h_400/quality,q_80`
+  // 逗号必须编码：微信抓取器会按逗号截断 query，截断后 OSS 返回 400。
+  const process = encodeURIComponent('image/format,jpg/interlace,0/resize,m_fill,w_400,h_400/quality,q_80')
+  return `${resolved}${sep}x-oss-process=${process}`
 }
