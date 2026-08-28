@@ -44,15 +44,8 @@
 
       <NuxtLink
         to="/"
-        class="flex items-center gap-2 font-display text-lg font-bold tracking-tight transition-colors duration-200 hover:text-primary"
+        class="font-display text-lg font-bold tracking-tight transition-colors duration-200 hover:text-primary"
       >
-        <img
-          :src="APP_META.shareIcon"
-          :alt="t('site.title')"
-          width="400"
-          height="400"
-          class="size-8 rounded-md"
-        />
         {{ t('site.title') }}
       </NuxtLink>
 
