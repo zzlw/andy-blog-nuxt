@@ -20,7 +20,15 @@ useHead({
     title ? `${title} | ${APP_META.titleSuffix}` : `${t('site.title')} | ${APP_META.titleSuffix}`,
   meta: [
     { name: 'description', content: () => t('site.description') },
-    { name: 'keywords', content: APP_META.keywords }
+    { name: 'keywords', content: APP_META.keywords },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:site_name', content: APP_META.title },
+    { property: 'og:url', content: APP_META.url },
+    { property: 'og:image', content: APP_META.shareIcon },
+    { property: 'og:image:width', content: '400' },
+    { property: 'og:image:height', content: '400' },
+    { name: 'twitter:card', content: 'summary' },
+    { name: 'twitter:image', content: APP_META.shareIcon }
   ]
 })
 

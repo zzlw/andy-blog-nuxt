@@ -24,6 +24,9 @@ declare global {
     error: (cb: (res: { errMsg: string }) => void) => void
     updateAppMessageShareData: (cfg: WxShareData) => void
     updateTimelineShareData: (cfg: Omit<WxShareData, 'desc'>) => void
+    /** 旧接口：部分客户端仍走这里，需与新接口同时注册 */
+    onMenuShareAppMessage?: (cfg: WxShareData) => void
+    onMenuShareTimeline?: (cfg: Omit<WxShareData, 'desc'>) => void
   }
 
   interface Window {

@@ -9,7 +9,12 @@
 import { APP_META } from '#shared/meta'
 
 const WX_SDK_SRC = 'https://res.wx.qq.com/open/js/jweixin-1.6.0.js'
-const JS_API_LIST = ['updateAppMessageShareData', 'updateTimelineShareData']
+const JS_API_LIST = [
+  'updateAppMessageShareData',
+  'updateTimelineShareData',
+  'onMenuShareAppMessage',
+  'onMenuShareTimeline'
+]
 
 const isWeChat = () => /MicroMessenger/i.test(navigator.userAgent)
 const isIOS = () => /iPhone|iPad|iPod/i.test(navigator.userAgent)
@@ -47,8 +52,7 @@ const toAbsoluteUrl = (url: string): string => {
   return url
 }
 
-const defaultIcon = (configured: string) =>
-  configured || `${location.origin}/share-icon.jpg`
+const defaultIcon = (configured: string) => configured || APP_META.shareIcon
 
 const readMetaDescription = () =>
   document.querySelector('meta[name="description"]')?.getAttribute('content') || APP_META.description
@@ -115,17 +119,21 @@ export default defineNuxtPlugin((nuxtApp) => {
       const share = resolveShare()
       wx.ready(() => {
         if (gen !== generation) return
-        wx.updateAppMessageShareData({
+        const appMessage = {
           title: share.title,
           desc: share.desc,
           link: share.link,
           imgUrl: share.imgUrl
-        })
-        wx.updateTimelineShareData({
+        }
+        const timeline = {
           title: share.title,
           link: share.link,
           imgUrl: share.imgUrl
-        })
+        }
+        wx.updateAppMessageShareData(appMessage)
+        wx.updateTimelineShareData(timeline)
+        wx.onMenuShareAppMessage?.(appMessage)
+        wx.onMenuShareTimeline?.(timeline)
       })
     } catch (error) {
       console.warn('[wechat-share]', error)

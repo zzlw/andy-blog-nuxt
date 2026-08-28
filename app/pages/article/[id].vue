@@ -120,7 +120,7 @@ useSeoMeta({
   description: article.value.description,
   ogTitle: article.value.title,
   ogDescription: article.value.description,
-  ogImage: article.value.cover ? resolveStaticUrl(staticPath, article.value.cover) : undefined
+  ogImage: article.value.cover ? resolveStaticUrl(staticPath, article.value.cover) : APP_META.shareIcon
 })
 
 useWechatShare(() => ({
