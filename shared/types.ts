@@ -114,3 +114,14 @@ export interface ArticleListParams {
   keyword?: string
   star?: number
 }
+
+/** 微信 JS-SDK 签名；未配置公众号凭据时 enabled 为 false */
+export type WechatSignatureResult =
+  | { enabled: false }
+  | {
+      enabled: true
+      appId: string
+      timestamp: number
+      nonceStr: string
+      signature: string
+    }

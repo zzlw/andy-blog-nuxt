@@ -7,6 +7,7 @@ export const useStaticUrl = () => {
 
   return {
     staticUrl: (url?: string | null) => resolveStaticUrl(staticPath, url),
-    thumbnailUrl: (url?: string | null, width = 800) => resolveThumbnailUrl(staticPath, url, width)
+    thumbnailUrl: (url?: string | null, width = 800) => resolveThumbnailUrl(staticPath, url, width),
+    shareImageUrl: (url?: string | null) => resolveShareImageUrl(staticPath, url)
   }
 }

@@ -52,7 +52,9 @@ export default defineNuxtConfig({
       staticPath: '',
       // AI 对话助手服务地址（surmon.me.ai / Cloudflare Workers，NUXT_PUBLIC_AI_API_BASE）
       // 留空则不渲染 AI 助手浮窗，便于后端未就绪时安全降级
-      aiApiBase: ''
+      aiApiBase: '',
+      // 微信分享默认缩略图（绝对 URL）。留空则使用当前站点 /share-icon.jpg
+      wechatShareIcon: ''
     }
   },
 

@@ -78,6 +78,7 @@
 
 <script setup lang="ts">
 import { Calendar, Folder, Eye, Clock, Heart } from 'lucide-vue-next'
+import { APP_META } from '#shared/meta'
 
 const { t } = useI18n()
 
@@ -88,7 +89,7 @@ if (!Number.isInteger(articleId) || articleId <= 0) {
 }
 
 const api = useBlogApi()
-const { thumbnailUrl } = useStaticUrl()
+const { thumbnailUrl, shareImageUrl } = useStaticUrl()
 const { staticPath } = useRuntimeConfig().public
 
 const { data: article, error } = await useAsyncData(`article-${articleId}`, () => api.getArticle(articleId))
@@ -121,4 +122,10 @@ useSeoMeta({
   ogDescription: article.value.description,
   ogImage: article.value.cover ? resolveStaticUrl(staticPath, article.value.cover) : undefined
 })
+
+useWechatShare(() => ({
+  title: article.value?.title ?? '',
+  desc: article.value?.description || APP_META.description,
+  imgUrl: shareImageUrl(article.value?.cover) || undefined
+}))
 </script>

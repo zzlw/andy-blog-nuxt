@@ -16,7 +16,8 @@ import type {
   Message,
   PaginateResult,
   Song,
-  Tag
+  Tag,
+  WechatSignatureResult
 } from '#shared/types'
 
 interface ApiEnvelope<T> {
@@ -80,7 +81,9 @@ export const useBlogApi = () => {
     getMessages: (params: { page?: number; page_size?: number } = {}) =>
       request<PaginateResult<Message>>('/messages', { query: params }),
     createMessage: (payload: { nickname?: string; content: string }) =>
-      request<Message>('/messages', { method: 'POST', body: payload })
+      request<Message>('/messages', { method: 'POST', body: payload }),
+    getWechatSignature: (url: string) =>
+      request<WechatSignatureResult>('/wechat/signature', { query: { url } })
   }
 }
 

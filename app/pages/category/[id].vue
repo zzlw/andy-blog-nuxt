@@ -11,6 +11,8 @@
 </template>
 
 <script setup lang="ts">
+import { APP_META } from '#shared/meta'
+
 const { t } = useI18n()
 
 const route = useRoute()
@@ -21,9 +23,16 @@ if (!Number.isInteger(categoryId) || categoryId <= 0) {
 
 const { data: categories } = await useCategoriesData()
 const category = computed(() => categories.value.find((item) => item.id === categoryId))
+const { shareImageUrl } = useStaticUrl()
 
 useSeoMeta({
   title: () => category.value?.name ?? t('category.fallback'),
   description: () => category.value?.description || undefined
 })
+
+useWechatShare(() => ({
+  title: category.value?.name || t('category.fallback'),
+  desc: category.value?.description || APP_META.description,
+  imgUrl: shareImageUrl(category.value?.cover) || undefined
+}))
 </script>
